@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme -->
+    <style name="Theme.EmergencyButton" parent="Theme.Material3.DayNight">
+        <!-- Primary brand color -->
+        <item name="colorPrimary">@color/emergency_red</item>
+        <item name="colorPrimaryVariant">@color/emergency_red_dark</item>
+        <item name="colorOnPrimary">@color/text_primary_dark</item>
+        
+        <!-- Secondary brand color -->
+        <item name="colorSecondary">@color/button_secondary</item>
+        <item name="colorSecondaryVariant">@color/button_secondary</item>
+        <item name="colorOnSecondary">@color/text_primary_dark</item>
+        
+        <!-- Status bar color -->
+        <item name="android:statusBarColor">@color/emergency_red</item>
+        <item name="android:windowLightStatusBar">false</item>
+        
+        <!-- Background colors -->
+        <item name="android:colorBackground">@color/background_dark</item>
+        <item name="colorSurface">@color/surface_dark</item>
+        <item name="colorOnSurface">@color/text_primary_dark</item>
+        
+        <!-- Text colors -->
+        <item name="android:textColorPrimary">@color/text_primary_dark</item>
+        <item name="android:textColorSecondary">@color/text_secondary_dark</item>
+        
+        <!-- Customize your theme here -->
+    </style>
+
+    <!-- No Action Bar theme for main activity -->
+    <style name="Theme.EmergencyButton.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
+
+    <!-- Emergency Button Style -->
+    <style name="EmergencyButtonStyle" parent="Widget.Material3.Button">
+        <item name="android:background">@drawable/emergency_button_background</item>
+        <item name="android:textColor">@color/text_primary_dark</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.1</item>
+        <item name="android:minHeight">200dp</item>
+        <item name="android:elevation">8dp</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+    <!-- Cancel Button Style -->
+    <style name="CancelButtonStyle" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:textColor">@color/text_primary_dark</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:minHeight">60dp</item>
+        <item name="strokeColor">@color/text_primary_dark</item>
+    </style>
+
+    <!-- Settings Button Style -->
+    <style name="SettingsButtonStyle" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textColor">@color/text_primary_dark</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:minHeight">48dp</item>
+    </style>
+
+    <!-- Countdown Text Style -->
+    <style name="CountdownTextStyle">
+        <item name="android:textColor">@color/text_primary_dark</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- Emergency Alert Dialog Style -->
+    <style name="EmergencyDialogStyle" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="colorPrimary">@color/emergency_red</item>
+        <item name="colorSurface">@color/surface_dark</item>
+        <item name="colorOnSurface">@color/text_primary_dark</item>
+    </style>
+</resources>

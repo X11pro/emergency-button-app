@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Emergency Colors -->
+    <color name="emergency_red">#FF0000</color>
+    <color name="emergency_red_dark">#CC0000</color>
+    <color name="emergency_red_light">#FF4444</color>
+    
+    <!-- Background Colors -->
+    <color name="background_dark">#121212</color>
+    <color name="background_light">#FFFFFF</color>
+    <color name="surface_dark">#1E1E1E</color>
+    <color name="surface_light">#F5F5F5</color>
+    
+    <!-- Text Colors -->
+    <color name="text_primary_dark">#FFFFFF</color>
+    <color name="text_primary_light">#000000</color>
+    <color name="text_secondary_dark">#B3FFFFFF</color>
+    <color name="text_secondary_light">#757575</color>
+    
+    <!-- Status Colors -->
+    <color name="success_green">#4CAF50</color>
+    <color name="warning_orange">#FF9800</color>
+    <color name="error_red">#F44336</color>
+    <color name="info_blue">#2196F3</color>
+    
+    <!-- Button Colors -->
+    <color name="button_primary">#FF0000</color>
+    <color name="button_secondary">#757575</color>
+    <color name="button_disabled">#BDBDBD</color>
+    
+    <!-- Widget Colors -->
+    <color name="widget_background">#80000000</color>
+    <color name="widget_text">#FFFFFF</color>
+    
+    <!-- Notification Colors -->
+    <color name="notification_background">#FF0000</color>
+    <color name="notification_text">#FFFFFF</color>
+</resources>

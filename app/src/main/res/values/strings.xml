@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Emergency Button</string>
+    
+    <!-- Main Screen -->
+    <string name="emergency_button_text">EMERGENCY</string>
+    <string name="emergency_button_subtitle">Press for help</string>
+    <string name="countdown_text">Canceling in %d seconds</string>
+    <string name="cancel_text">CANCEL</string>
+    <string name="settings_button">Settings</string>
+    
+    <!-- Settings -->
+    <string name="settings">Settings</string>
+    <string name="emergency_contacts">Emergency Contacts</string>
+    <string name="emergency_message">Emergency Message</string>
+    <string name="emergency_message_hint">Enter your emergency message</string>
+    <string name="default_emergency_message">EMERGENCY! I need help immediately. My location is:</string>
+    <string name="add_contact">Add Contact</string>
+    <string name="remove_contact">Remove</string>
+    <string name="test_emergency">Test Emergency</string>
+    <string name="test_mode_enabled">Test Mode Enabled</string>
+    <string name="test_mode_disabled">Test Mode Disabled</string>
+    
+    <!-- Permissions -->
+    <string name="permission_location_title">Location Permission Required</string>
+    <string name="permission_location_message">This app needs location access to send your exact location in emergencies.</string>
+    <string name="permission_sms_title">SMS Permission Required</string>
+    <string name="permission_sms_message">This app needs SMS permission to send emergency messages.</string>
+    <string name="permission_phone_title">Phone Permission Required</string>
+    <string name="permission_phone_message">This app needs phone permission to make emergency calls.</string>
+    <string name="permission_contacts_title">Contacts Permission Required</string>
+    <string name="permission_contacts_message">This app needs contacts permission to select emergency contacts.</string>
+    
+    <!-- Emergency Actions -->
+    <string name="sending_emergency">Sending Emergency Alert...</string>
+    <string name="getting_location">Getting your location...</string>
+    <string name="sending_sms">Sending SMS to contacts...</string>
+    <string name="making_call">Making emergency call...</string>
+    <string name="activating_alerts">Activating alerts...</string>
+    <string name="emergency_sent">Emergency alert sent!</string>
+    <string name="emergency_failed">Emergency alert failed</string>
+    
+    <!-- Widget -->
+    <string name="widget_emergency_button">EMERGENCY</string>
+    <string name="widget_configure">Configure Emergency Button</string>
+    
+    <!-- Notifications -->
+    <string name="emergency_service_title">Emergency Button Active</string>
+    <string name="emergency_service_text">Emergency service is running</string>
+    <string name="emergency_notification_title">Emergency Alert</string>
+    <string name="emergency_notification_text">Emergency button activated</string>
+    
+    <!-- Errors -->
+    <string name="error_no_contacts">No emergency contacts configured</string>
+    <string name="error_location_unavailable">Location unavailable</string>
+    <string name="error_sms_failed">Failed to send SMS</string>
+    <string name="error_call_failed">Failed to make call</string>
+    <string name="error_permissions_denied">Required permissions denied</string>
+    
+    <!-- Success Messages -->
+    <string name="contact_added">Contact added successfully</string>
+    <string name="contact_removed">Contact removed successfully</string>
+    <string name="settings_saved">Settings saved successfully</string>
+    <string name="test_successful">Test completed successfully</string>
+    
+    <!-- Dialog Titles -->
+    <string name="confirm_emergency">Confirm Emergency</string>
+    <string name="confirm_emergency_message">Are you sure you want to send an emergency alert?</string>
+    <string name="confirm_test">Confirm Test</string>
+    <string name="confirm_test_message">This will test the emergency system without sending real alerts. Continue?</string>
+    
+    <!-- Button Text -->
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="select">Select</string>
+    
+    <!-- Accessibility -->
+    <string name="emergency_button_description">Large red emergency button to send help alert</string>
+    <string name="settings_button_description">Open settings to configure emergency contacts</string>
+    <string name="cancel_button_description">Cancel emergency alert</string>
+</resources>
