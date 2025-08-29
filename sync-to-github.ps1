@@ -1,16 +1,16 @@
 # Script para sincronizar Emergency Button App con GitHub
 # Ejecutar este script después de crear el repositorio en GitHub
 
-Write-Host "=== Emergency Button App - Sincronización con GitHub ===" -ForegroundColor Green
+Write-Host "=== Emergency Button App - Sincronizacion con GitHub ===" -ForegroundColor Green
 Write-Host ""
 
 # Verificar si estamos en el directorio correcto
 if (-not (Test-Path "build.gradle")) {
-    Write-Host "Error: No se encontró build.gradle. Asegúrate de estar en el directorio EmergencyButton" -ForegroundColor Red
+    Write-Host "Error: No se encontro build.gradle. Asegurate de estar en el directorio EmergencyButton" -ForegroundColor Red
     exit 1
 }
 
-Write-Host "✓ Verificando estructura del proyecto..." -ForegroundColor Yellow
+Write-Host "Verificando estructura del proyecto..." -ForegroundColor Yellow
 
 # Verificar archivos importantes
 $requiredFiles = @(
@@ -22,16 +22,16 @@ $requiredFiles = @(
 
 foreach ($file in $requiredFiles) {
     if (Test-Path $file) {
-        Write-Host "  ✓ $file" -ForegroundColor Green
+        Write-Host "  $file" -ForegroundColor Green
     } else {
-        Write-Host "  ✗ $file (FALTANTE)" -ForegroundColor Red
+        Write-Host "  $file (FALTANTE)" -ForegroundColor Red
     }
 }
 
 Write-Host ""
-Write-Host "=== Configuración de Git ===" -ForegroundColor Cyan
+Write-Host "=== Configuracion de Git ===" -ForegroundColor Cyan
 
-# Verificar si Git está inicializado
+# Verificar si Git esta inicializado
 if (-not (Test-Path ".git")) {
     Write-Host "Inicializando repositorio Git..." -ForegroundColor Yellow
     git init
@@ -42,14 +42,14 @@ Write-Host "Estado actual del repositorio:" -ForegroundColor Yellow
 git status
 
 Write-Host ""
-Write-Host "=== Instrucciones para completar la sincronización ===" -ForegroundColor Cyan
+Write-Host "=== Instrucciones para completar la sincronizacion ===" -ForegroundColor Cyan
 Write-Host ""
 
 Write-Host "1. Crea el repositorio en GitHub:" -ForegroundColor White
 Write-Host "   - Ve a https://github.com" -ForegroundColor Gray
 Write-Host "   - Haz clic en 'New repository'" -ForegroundColor Gray
 Write-Host "   - Nombre: emergency-button-app" -ForegroundColor Gray
-Write-Host "   - Descripción: Emergency Button App - Android emergency app with Kotlin" -ForegroundColor Gray
+Write-Host "   - Descripcion: Emergency Button App - Android emergency app with Kotlin" -ForegroundColor Gray
 Write-Host "   - NO inicialices con README, .gitignore o license" -ForegroundColor Gray
 Write-Host ""
 
@@ -66,7 +66,7 @@ Write-Host "git branch -M main" -ForegroundColor White
 Write-Host "git push -u origin main" -ForegroundColor White
 
 Write-Host ""
-Write-Host "¿Quieres que ejecute estos comandos automáticamente? (y/n)" -ForegroundColor Cyan
+Write-Host "Quieres que ejecute estos comandos automaticamente? (y/n)" -ForegroundColor Cyan
 $response = Read-Host
 
 if ($response -eq "y" -or $response -eq "Y") {
@@ -82,11 +82,11 @@ if ($response -eq "y" -or $response -eq "Y") {
     git branch -M main
     
     # Push
-    Write-Host "Subiendo código a GitHub..." -ForegroundColor Yellow
+    Write-Host "Subiendo codigo a GitHub..." -ForegroundColor Yellow
     git push -u origin main
     
     Write-Host ""
-    Write-Host "✓ ¡Sincronización completada!" -ForegroundColor Green
+    Write-Host "Sincronizacion completada!" -ForegroundColor Green
     Write-Host "Repositorio disponible en: $repoUrl" -ForegroundColor Cyan
 } else {
     Write-Host ""
@@ -94,10 +94,10 @@ if ($response -eq "y" -or $response -eq "Y") {
 }
 
 Write-Host ""
-Write-Host "=== Verificación final ===" -ForegroundColor Cyan
-Write-Host "Para verificar que todo está sincronizado:" -ForegroundColor White
+Write-Host "=== Verificacion final ===" -ForegroundColor Cyan
+Write-Host "Para verificar que todo esta sincronizado:" -ForegroundColor White
 Write-Host "git remote -v" -ForegroundColor Gray
 Write-Host "git status" -ForegroundColor Gray
 
 Write-Host ""
-Write-Host "¡Emergency Button App está lista para usar!" -ForegroundColor Green
+Write-Host "Emergency Button App esta lista para usar!" -ForegroundColor Green
