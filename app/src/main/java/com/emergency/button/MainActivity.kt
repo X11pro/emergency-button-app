@@ -12,7 +12,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.emergency.button.databinding.ActivityMainBinding
-import com.emergency.button.service.EmergencyService
+
 import com.emergency.button.utils.EmergencyManager
 import com.emergency.button.utils.PermissionManager
 

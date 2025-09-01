@@ -18,6 +18,8 @@ import com.google.android.gms.tasks.CancellationToken
 import com.google.android.gms.tasks.CancellationTokenSource
 import com.google.android.gms.tasks.OnTokenCanceledListener
 import kotlinx.coroutines.*
+import kotlin.coroutines.resume
+import kotlin.coroutines.suspendCoroutine
 
 class EmergencyManager(private val context: Context) {
     
@@ -76,7 +78,7 @@ class EmergencyManager(private val context: Context) {
             Log.d(TAG, "Getting current location")
             
             val location = withContext(Dispatchers.IO) {
-                fusedLocationClient.getCurrentLocation(
+                val task = fusedLocationClient.getCurrentLocation(
                     Priority.PRIORITY_HIGH_ACCURACY,
                     object : CancellationToken() {
                         override fun onCanceledRequested(listener: OnTokenCanceledListener): CancellationToken {
@@ -87,7 +89,17 @@ class EmergencyManager(private val context: Context) {
                             return false
                         }
                     }
-                ).await()
+                )
+                
+                // Convert Task to suspend function
+                suspendCoroutine<Location?> { continuation ->
+                    task.addOnSuccessListener { location ->
+                        continuation.resume(location)
+                    }.addOnFailureListener { exception ->
+                        Log.e(TAG, "Failed to get location", exception)
+                        continuation.resume(null)
+                    }
+                }
             }
             
             Log.d(TAG, "Location obtained: ${location?.latitude}, ${location?.longitude}")

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background_dark">#121212</color>
+    <color name="background_light">#FFFFFF</color>
+    <color name="button_disabled">#BDBDBD</color>
+    <color name="button_primary">#FF0000</color>
+    <color name="button_secondary">#757575</color>
+    <color name="emergency_red">#FF0000</color>
+    <color name="emergency_red_dark">#CC0000</color>
+    <color name="emergency_red_light">#FF4444</color>
+    <color name="error_red">#F44336</color>
+    <color name="info_blue">#2196F3</color>
+    <color name="notification_background">#FF0000</color>
+    <color name="notification_text">#FFFFFF</color>
+    <color name="success_green">#4CAF50</color>
+    <color name="surface_dark">#1E1E1E</color>
+    <color name="surface_light">#F5F5F5</color>
+    <color name="text_primary_dark">#FFFFFF</color>
+    <color name="text_primary_light">#000000</color>
+    <color name="text_secondary_dark">#B3FFFFFF</color>
+    <color name="text_secondary_light">#757575</color>
+    <color name="warning_orange">#FF9800</color>
+    <color name="widget_background">#80000000</color>
+    <color name="widget_text">#FFFFFF</color>
+    <string name="activating_alerts">Activating alerts...</string>
+    <string name="add_contact">Add Contact</string>
+    <string name="app_name">Emergency Button</string>
+    <string name="cancel">Cancel</string>
+    <string name="cancel_button_description">Cancel emergency alert</string>
+    <string name="cancel_text">CANCEL</string>
+    <string name="confirm_emergency">Confirm Emergency</string>
+    <string name="confirm_emergency_message">Are you sure you want to send an emergency alert?</string>
+    <string name="confirm_test">Confirm Test</string>
+    <string name="confirm_test_message">This will test the emergency system without sending real alerts. Continue?</string>
+    <string name="contact_added">Contact added successfully</string>
+    <string name="contact_removed">Contact removed successfully</string>
+    <string name="countdown_text">Canceling in %d seconds</string>
+    <string name="default_emergency_message">EMERGENCY! I need help immediately. My location is:</string>
+    <string name="delete">Delete</string>
+    <string name="emergency_button_description">Large red emergency button to send help alert</string>
+    <string name="emergency_button_subtitle">Press for help</string>
+    <string name="emergency_button_text">EMERGENCY</string>
+    <string name="emergency_contacts">Emergency Contacts</string>
+    <string name="emergency_failed">Emergency alert failed</string>
+    <string name="emergency_message">Emergency Message</string>
+    <string name="emergency_message_hint">Enter your emergency message</string>
+    <string name="emergency_notification_text">Emergency button activated</string>
+    <string name="emergency_notification_title">Emergency Alert</string>
+    <string name="emergency_sent">Emergency alert sent!</string>
+    <string name="emergency_service_text">Emergency service is running</string>
+    <string name="emergency_service_title">Emergency Button Active</string>
+    <string name="error_call_failed">Failed to make call</string>
+    <string name="error_location_unavailable">Location unavailable</string>
+    <string name="error_no_contacts">No emergency contacts configured</string>
+    <string name="error_permissions_denied">Required permissions denied</string>
+    <string name="error_sms_failed">Failed to send SMS</string>
+    <string name="getting_location">Getting your location...</string>
+    <string name="making_call">Making emergency call...</string>
+    <string name="no">No</string>
+    <string name="ok">OK</string>
+    <string name="permission_contacts_message">This app needs contacts permission to select emergency contacts.</string>
+    <string name="permission_contacts_title">Contacts Permission Required</string>
+    <string name="permission_location_message">This app needs location access to send your exact location in emergencies.</string>
+    <string name="permission_location_title">Location Permission Required</string>
+    <string name="permission_phone_message">This app needs phone permission to make emergency calls.</string>
+    <string name="permission_phone_title">Phone Permission Required</string>
+    <string name="permission_sms_message">This app needs SMS permission to send emergency messages.</string>
+    <string name="permission_sms_title">SMS Permission Required</string>
+    <string name="remove_contact">Remove</string>
+    <string name="save">Save</string>
+    <string name="select">Select</string>
+    <string name="sending_emergency">Sending Emergency Alert...</string>
+    <string name="sending_sms">Sending SMS to contacts...</string>
+    <string name="settings">Settings</string>
+    <string name="settings_button">Settings</string>
+    <string name="settings_button_description">Open settings to configure emergency contacts</string>
+    <string name="settings_saved">Settings saved successfully</string>
+    <string name="test_emergency">Test Emergency</string>
+    <string name="test_mode_disabled">Test Mode Disabled</string>
+    <string name="test_mode_enabled">Test Mode Enabled</string>
+    <string name="test_successful">Test completed successfully</string>
+    <string name="widget_configure">Configure Emergency Button</string>
+    <string name="widget_emergency_button">EMERGENCY</string>
+    <string name="yes">Yes</string>
+    <style name="CancelButtonStyle" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:textColor">@color/text_primary_dark</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:minHeight">60dp</item>
+        <item name="strokeColor">@color/text_primary_dark</item>
+    </style>
+    <style name="CountdownTextStyle">
+        <item name="android:textColor">@color/text_primary_dark</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="EmergencyButtonStyle" parent="Widget.Material3.Button">
+        <item name="android:background">@drawable/emergency_button_background</item>
+        <item name="android:textColor">@color/text_primary_dark</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.1</item>
+        <item name="android:minHeight">200dp</item>
+        <item name="android:elevation">8dp</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+    <style name="EmergencyDialogStyle" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="colorPrimary">@color/emergency_red</item>
+        <item name="colorSurface">@color/surface_dark</item>
+        <item name="colorOnSurface">@color/text_primary_dark</item>
+    </style>
+    <style name="SettingsButtonStyle" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textColor">@color/text_primary_dark</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:minHeight">48dp</item>
+    </style>
+    <style name="Theme.EmergencyButton" parent="Theme.Material3.DayNight">
+        
+        <item name="colorPrimary">@color/emergency_red</item>
+        <item name="colorPrimaryVariant">@color/emergency_red_dark</item>
+        <item name="colorOnPrimary">@color/text_primary_dark</item>
+        
+        
+        <item name="colorSecondary">@color/button_secondary</item>
+        <item name="colorSecondaryVariant">@color/button_secondary</item>
+        <item name="colorOnSecondary">@color/text_primary_dark</item>
+        
+        
+        <item name="android:statusBarColor">@color/emergency_red</item>
+        <item name="android:windowLightStatusBar">false</item>
+        
+        
+        <item name="android:colorBackground">@color/background_dark</item>
+        <item name="colorSurface">@color/surface_dark</item>
+        <item name="colorOnSurface">@color/text_primary_dark</item>
+        
+        
+        <item name="android:textColorPrimary">@color/text_primary_dark</item>
+        <item name="android:textColorSecondary">@color/text_secondary_dark</item>
+        
+        
+    </style>
+    <style name="Theme.EmergencyButton.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
+</resources>

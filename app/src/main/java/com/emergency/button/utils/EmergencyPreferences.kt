@@ -19,7 +19,7 @@ class EmergencyPreferences(private val context: Context) {
     }
     
     fun getEmergencyMessage(): String {
-        return sharedPreferences.getString(KEY_EMERGENCY_MESSAGE, context.getString(R.string.default_emergency_message)) ?: context.getString(R.string.default_emergency_message)
+        return sharedPreferences.getString(KEY_EMERGENCY_MESSAGE, "EMERGENCY! I need help immediately. My location is:") ?: "EMERGENCY! I need help immediately. My location is:"
     }
     
     fun setEmergencyMessage(message: String): Boolean {
