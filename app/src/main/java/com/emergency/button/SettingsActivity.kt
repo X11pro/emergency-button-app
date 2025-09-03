@@ -32,69 +32,105 @@ class SettingsActivity : AppCompatActivity() {
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySettingsBinding.inflate(layoutInflater)
-        setContentView(binding.root)
         
-        initializeManagers()
-        setupUI()
-        loadSettings()
+        try {
+            android.util.Log.d("SettingsActivity", "Starting onCreate")
+            binding = ActivitySettingsBinding.inflate(layoutInflater)
+            android.util.Log.d("SettingsActivity", "Binding inflated successfully")
+            setContentView(binding.root)
+            android.util.Log.d("SettingsActivity", "Content view set")
+            
+            initializeManagers()
+            android.util.Log.d("SettingsActivity", "Managers initialized")
+            setupUI()
+            android.util.Log.d("SettingsActivity", "UI setup completed")
+            loadSettings()
+            android.util.Log.d("SettingsActivity", "Settings loaded successfully")
+        } catch (e: Exception) {
+            android.util.Log.e("SettingsActivity", "Error in onCreate: ${e.message}", e)
+            Toast.makeText(this, "Error initializing settings: ${e.message}", Toast.LENGTH_LONG).show()
+            finish()
+        }
     }
     
     private fun initializeManagers() {
-        contactManager = ContactManager(this)
-        emergencyPreferences = EmergencyPreferences(this)
-        emergencyManager = EmergencyManager(this)
+        try {
+            android.util.Log.d("SettingsActivity", "Initializing ContactManager")
+            contactManager = ContactManager(this)
+            android.util.Log.d("SettingsActivity", "ContactManager initialized")
+            
+            android.util.Log.d("SettingsActivity", "Initializing EmergencyPreferences")
+            emergencyPreferences = EmergencyPreferences(this)
+            android.util.Log.d("SettingsActivity", "EmergencyPreferences initialized")
+            
+            android.util.Log.d("SettingsActivity", "Initializing EmergencyManager")
+            emergencyManager = EmergencyManager(this)
+            android.util.Log.d("SettingsActivity", "EmergencyManager initialized")
+        } catch (e: Exception) {
+            android.util.Log.e("SettingsActivity", "Error initializing managers: ${e.message}", e)
+            throw e
+        }
     }
     
     private fun setupUI() {
-        // Setup toolbar
-        setSupportActionBar(binding.toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setDisplayShowHomeEnabled(true)
-        
-        // Setup contacts recycler view
-        contactsAdapter = ContactsAdapter(
-            onRemoveClick = { contact -> removeContact(contact) }
-        )
-        binding.contactsRecyclerView.apply {
-            layoutManager = LinearLayoutManager(this@SettingsActivity)
-            adapter = contactsAdapter
-        }
-        
-        // Setup button click listeners
-        binding.addContactButton.setOnClickListener {
-            addContact()
-        }
-        
-        binding.testEmergencyButton.setOnClickListener {
-            testEmergency()
-        }
-        
-        binding.testModeSwitch.setOnCheckedChangeListener { _, isChecked ->
-            emergencyPreferences.setTestMode(isChecked)
-            updateTestModeUI(isChecked)
-        }
-        
-        // Setup emergency message input
-        binding.emergencyMessageInput.setOnFocusChangeListener { _, hasFocus ->
-            if (!hasFocus) {
-                saveEmergencyMessage()
+        try {
+            // Setup toolbar
+            setSupportActionBar(binding.toolbar)
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            supportActionBar?.setDisplayShowHomeEnabled(true)
+            
+            // Setup contacts recycler view
+            contactsAdapter = ContactsAdapter(
+                onRemoveClick = { contact -> removeContact(contact) }
+            )
+            binding.contactsRecyclerView.apply {
+                layoutManager = LinearLayoutManager(this@SettingsActivity)
+                adapter = contactsAdapter
             }
+            
+            // Setup button click listeners
+            binding.addContactButton.setOnClickListener {
+                addContact()
+            }
+            
+            binding.testEmergencyButton.setOnClickListener {
+                testEmergency()
+            }
+            
+            binding.testModeSwitch.setOnCheckedChangeListener { _, isChecked ->
+                emergencyPreferences.setTestMode(isChecked)
+                updateTestModeUI(isChecked)
+            }
+            
+            // Setup emergency message input
+            binding.emergencyMessageInput.setOnFocusChangeListener { _, hasFocus ->
+                if (!hasFocus) {
+                    saveEmergencyMessage()
+                }
+            }
+        } catch (e: Exception) {
+            android.util.Log.e("SettingsActivity", "Error setting up UI", e)
+            throw e
         }
     }
     
     private fun loadSettings() {
-        // Load emergency message
-        val message = emergencyPreferences.getEmergencyMessage()
-        binding.emergencyMessageInput.setText(message)
-        
-        // Load contacts
-        loadContacts()
-        
-        // Load test mode
-        val testMode = emergencyPreferences.isTestModeEnabled()
-        binding.testModeSwitch.isChecked = testMode
-        updateTestModeUI(testMode)
+        try {
+            // Load emergency message
+            val message = emergencyPreferences.getEmergencyMessage()
+            binding.emergencyMessageInput.setText(message)
+            
+            // Load contacts
+            loadContacts()
+            
+            // Load test mode
+            val testMode = emergencyPreferences.isTestModeEnabled()
+            binding.testModeSwitch.isChecked = testMode
+            updateTestModeUI(testMode)
+        } catch (e: Exception) {
+            android.util.Log.e("SettingsActivity", "Error loading settings", e)
+            Toast.makeText(this, "Error loading settings", Toast.LENGTH_SHORT).show()
+        }
     }
     
     private fun loadContacts() {

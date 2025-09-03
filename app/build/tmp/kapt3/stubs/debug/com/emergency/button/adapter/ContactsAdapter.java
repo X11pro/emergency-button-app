@@ -1,49 +1,56 @@
 package com.emergency.button.adapter;
 
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import androidx.recyclerview.widget.RecyclerView;
+import com.emergency.button.R;
+import com.emergency.button.databinding.ItemContactBinding;
+import com.emergency.button.utils.EmergencyContact;
+
 @kotlin.Metadata(mv = {1, 9, 0}, k = 1, xi = 48, d1 = {"\u00004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010 \n\u0000\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u00002\f\u0012\b\u0012\u00060\u0002R\u00020\u00000\u0001:\u0001\u0015B\u0019\u0012\u0012\u0010\u0003\u001a\u000e\u0012\u0004\u0012\u00020\u0005\u0012\u0004\u0012\u00020\u00060\u0004\u00a2\u0006\u0002\u0010\u0007J\b\u0010\n\u001a\u00020\u000bH\u0016J\u001c\u0010\f\u001a\u00020\u00062\n\u0010\r\u001a\u00060\u0002R\u00020\u00002\u0006\u0010\u000e\u001a\u00020\u000bH\u0016J\u001c\u0010\u000f\u001a\u00060\u0002R\u00020\u00002\u0006\u0010\u0010\u001a\u00020\u00112\u0006\u0010\u0012\u001a\u00020\u000bH\u0016J\u0014\u0010\u0013\u001a\u00020\u00062\f\u0010\u0014\u001a\b\u0012\u0004\u0012\u00020\u00050\tR\u0014\u0010\b\u001a\b\u0012\u0004\u0012\u00020\u00050\tX\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u001a\u0010\u0003\u001a\u000e\u0012\u0004\u0012\u00020\u0005\u0012\u0004\u0012\u00020\u00060\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000\u00a8\u0006\u0016"}, d2 = {"Lcom/emergency/button/adapter/ContactsAdapter;", "Landroidx/recyclerview/widget/RecyclerView$Adapter;", "Lcom/emergency/button/adapter/ContactsAdapter$ContactViewHolder;", "onRemoveClick", "Lkotlin/Function1;", "Lcom/emergency/button/utils/EmergencyContact;", "", "(Lkotlin/jvm/functions/Function1;)V", "contacts", "", "getItemCount", "", "onBindViewHolder", "holder", "position", "onCreateViewHolder", "parent", "Landroid/view/ViewGroup;", "viewType", "updateContacts", "newContacts", "ContactViewHolder", "app_debug"})
 public final class ContactsAdapter extends androidx.recyclerview.widget.RecyclerView.Adapter<com.emergency.button.adapter.ContactsAdapter.ContactViewHolder> {
-    @org.jetbrains.annotations.NotNull
+    @org.jetbrains.annotations.NotNull()
     private final kotlin.jvm.functions.Function1<com.emergency.button.utils.EmergencyContact, kotlin.Unit> onRemoveClick = null;
-    @org.jetbrains.annotations.NotNull
+    @org.jetbrains.annotations.NotNull()
     private java.util.List<com.emergency.button.utils.EmergencyContact> contacts;
     
-    public ContactsAdapter(@org.jetbrains.annotations.NotNull
+    public ContactsAdapter(@org.jetbrains.annotations.NotNull()
     kotlin.jvm.functions.Function1<? super com.emergency.button.utils.EmergencyContact, kotlin.Unit> onRemoveClick) {
         super();
     }
     
-    public final void updateContacts(@org.jetbrains.annotations.NotNull
+    public final void updateContacts(@org.jetbrains.annotations.NotNull()
     java.util.List<com.emergency.button.utils.EmergencyContact> newContacts) {
     }
     
-    @java.lang.Override
-    @org.jetbrains.annotations.NotNull
-    public com.emergency.button.adapter.ContactsAdapter.ContactViewHolder onCreateViewHolder(@org.jetbrains.annotations.NotNull
+    @java.lang.Override()
+    @org.jetbrains.annotations.NotNull()
+    public com.emergency.button.adapter.ContactsAdapter.ContactViewHolder onCreateViewHolder(@org.jetbrains.annotations.NotNull()
     android.view.ViewGroup parent, int viewType) {
         return null;
     }
     
-    @java.lang.Override
-    public void onBindViewHolder(@org.jetbrains.annotations.NotNull
+    @java.lang.Override()
+    public void onBindViewHolder(@org.jetbrains.annotations.NotNull()
     com.emergency.button.adapter.ContactsAdapter.ContactViewHolder holder, int position) {
     }
     
-    @java.lang.Override
+    @java.lang.Override()
     public int getItemCount() {
         return 0;
     }
     
     @kotlin.Metadata(mv = {1, 9, 0}, k = 1, xi = 48, d1 = {"\u0000\u001e\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\b\u0086\u0004\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u00a2\u0006\u0002\u0010\u0004J\u000e\u0010\u0005\u001a\u00020\u00062\u0006\u0010\u0007\u001a\u00020\bR\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004\u00a2\u0006\u0002\n\u0000\u00a8\u0006\t"}, d2 = {"Lcom/emergency/button/adapter/ContactsAdapter$ContactViewHolder;", "Landroidx/recyclerview/widget/RecyclerView$ViewHolder;", "binding", "Lcom/emergency/button/databinding/ItemContactBinding;", "(Lcom/emergency/button/adapter/ContactsAdapter;Lcom/emergency/button/databinding/ItemContactBinding;)V", "bind", "", "contact", "Lcom/emergency/button/utils/EmergencyContact;", "app_debug"})
     public final class ContactViewHolder extends androidx.recyclerview.widget.RecyclerView.ViewHolder {
-        @org.jetbrains.annotations.NotNull
+        @org.jetbrains.annotations.NotNull()
         private final com.emergency.button.databinding.ItemContactBinding binding = null;
         
-        public ContactViewHolder(@org.jetbrains.annotations.NotNull
+        public ContactViewHolder(@org.jetbrains.annotations.NotNull()
         com.emergency.button.databinding.ItemContactBinding binding) {
             super(null);
         }
         
-        public final void bind(@org.jetbrains.annotations.NotNull
+        public final void bind(@org.jetbrains.annotations.NotNull()
         com.emergency.button.utils.EmergencyContact contact) {
         }
     }

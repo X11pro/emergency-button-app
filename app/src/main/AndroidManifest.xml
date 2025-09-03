@@ -49,7 +49,8 @@
             android:name=".SettingsActivity"
             android:exported="false"
             android:label="@string/settings"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.EmergencyButton.NoActionBar" />
 
         <!-- Emergency Service -->
         <service
