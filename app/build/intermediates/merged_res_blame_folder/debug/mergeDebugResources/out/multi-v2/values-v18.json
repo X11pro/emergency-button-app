@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.emergency.button.app-mergeDebugResources-46:/values-v18/values-v18.xml",
+            "map": [
+                {
+                    "source": "/home/lnx-ubt/.gradle/caches/8.13/transforms/623bb579128569e50e26ef40db687103/transformed/appcompat-1.6.1/res/values-v18/values-v18.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "48",
+                        "endOffsets": "99"
+                    }
+                }
+            ]
+        }
+    ]
+}
