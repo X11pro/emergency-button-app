@@ -149,38 +149,93 @@ class SettingsActivity : AppCompatActivity() {
     
     private fun handleContactSelection(uri: android.net.Uri) {
         try {
+            android.util.Log.d("SettingsActivity", "Handling contact selection: $uri")
+            
             val cursor = contentResolver.query(
                 uri,
                 arrayOf(
-                    ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME,
-                    ContactsContract.CommonDataKinds.Phone.NUMBER
+                    ContactsContract.Contacts.DISPLAY_NAME,
+                    ContactsContract.Contacts._ID
                 ),
                 null,
                 null,
                 null
             )
             
-            cursor?.use {
+            if (cursor == null) {
+                android.util.Log.e("SettingsActivity", "Cursor is null")
+                Toast.makeText(this, "Error: Could not access contact", Toast.LENGTH_SHORT).show()
+                return
+            }
+            
+            cursor.use {
                 if (it.moveToFirst()) {
-                    val nameIndex = it.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME)
-                    val numberIndex = it.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER)
+                    val nameIndex = it.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME)
+                    val idIndex = it.getColumnIndex(ContactsContract.Contacts._ID)
                     
-                    val name = it.getString(nameIndex)
-                    val phoneNumber = it.getString(numberIndex)?.replace("\\s".toRegex(), "")
+                    android.util.Log.d("SettingsActivity", "Name index: $nameIndex, ID index: $idIndex")
                     
-                    if (phoneNumber != null) {
-                        val contact = EmergencyContact(name, phoneNumber)
-                        if (contactManager.addEmergencyContact(contact)) {
-                            loadContacts()
-                            Toast.makeText(this, R.string.contact_added, Toast.LENGTH_SHORT).show()
+                    if (nameIndex >= 0 && idIndex >= 0) {
+                        val name = it.getString(nameIndex) ?: "Unknown"
+                        val contactId = it.getString(idIndex)
+                        
+                        android.util.Log.d("SettingsActivity", "Contact: $name, ID: $contactId")
+                        
+                        // Get phone number for this contact
+                        val phoneNumber = getContactPhoneNumber(contactId)
+                        
+                        if (!phoneNumber.isNullOrEmpty()) {
+                            val contact = EmergencyContact(name, phoneNumber)
+                            android.util.Log.d("SettingsActivity", "Adding contact: $contact")
+                            
+                            if (contactManager.addEmergencyContact(contact)) {
+                                loadContacts()
+                                Toast.makeText(this, "Contact added successfully", Toast.LENGTH_SHORT).show()
+                                android.util.Log.d("SettingsActivity", "Contact added successfully")
+                            } else {
+                                Toast.makeText(this, "Contact already exists or could not be saved", Toast.LENGTH_SHORT).show()
+                                android.util.Log.w("SettingsActivity", "Failed to add contact")
+                            }
                         } else {
-                            Toast.makeText(this, "Contact already exists", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, "No phone number found for this contact", Toast.LENGTH_SHORT).show()
+                            android.util.Log.w("SettingsActivity", "No phone number found")
                         }
+                    } else {
+                        Toast.makeText(this, "Error: Could not read contact information", Toast.LENGTH_SHORT).show()
+                        android.util.Log.e("SettingsActivity", "Invalid column indices")
                     }
+                } else {
+                    Toast.makeText(this, "Error: No contact data found", Toast.LENGTH_SHORT).show()
+                    android.util.Log.e("SettingsActivity", "No contact data found")
                 }
             }
         } catch (e: Exception) {
-            Toast.makeText(this, "Error selecting contact", Toast.LENGTH_SHORT).show()
+            android.util.Log.e("SettingsActivity", "Error selecting contact: ${e.message}", e)
+            Toast.makeText(this, "Error selecting contact: ${e.message}", Toast.LENGTH_LONG).show()
+        }
+    }
+    
+    private fun getContactPhoneNumber(contactId: String): String? {
+        return try {
+            val phoneCursor = contentResolver.query(
+                ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+                arrayOf(ContactsContract.CommonDataKinds.Phone.NUMBER),
+                "${ContactsContract.CommonDataKinds.Phone.CONTACT_ID} = ?",
+                arrayOf(contactId),
+                null
+            )
+            
+            phoneCursor?.use {
+                if (it.moveToFirst()) {
+                    val numberIndex = it.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER)
+                    if (numberIndex >= 0) {
+                        it.getString(numberIndex)?.replace("\\s".toRegex(), "")
+                    } else null
+                } else null
+            }
+        } catch (e: Exception) {
+            android.util.Log.e("SettingsActivity", "Error getting phone number: ${e.message}", e)
+            null
         }
     }
     
