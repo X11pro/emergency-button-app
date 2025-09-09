@@ -30,9 +30,6 @@ public final class ActivityMainBinding implements ViewBinding {
   public final MaterialButton emergencyButton;
 
   @NonNull
-  public final MaterialButton emergencyOptionsButton;
-
-  @NonNull
   public final MaterialButton floatingSOSToggleButton;
 
   @NonNull
@@ -40,13 +37,12 @@ public final class ActivityMainBinding implements ViewBinding {
 
   private ActivityMainBinding(@NonNull ConstraintLayout rootView,
       @NonNull MaterialButton cancelButton, @NonNull TextView countdownText,
-      @NonNull MaterialButton emergencyButton, @NonNull MaterialButton emergencyOptionsButton,
-      @NonNull MaterialButton floatingSOSToggleButton, @NonNull MaterialButton settingsButton) {
+      @NonNull MaterialButton emergencyButton, @NonNull MaterialButton floatingSOSToggleButton,
+      @NonNull MaterialButton settingsButton) {
     this.rootView = rootView;
     this.cancelButton = cancelButton;
     this.countdownText = countdownText;
     this.emergencyButton = emergencyButton;
-    this.emergencyOptionsButton = emergencyOptionsButton;
     this.floatingSOSToggleButton = floatingSOSToggleButton;
     this.settingsButton = settingsButton;
   }
@@ -96,12 +92,6 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.emergencyOptionsButton;
-      MaterialButton emergencyOptionsButton = ViewBindings.findChildViewById(rootView, id);
-      if (emergencyOptionsButton == null) {
-        break missingId;
-      }
-
       id = R.id.floatingSOSToggleButton;
       MaterialButton floatingSOSToggleButton = ViewBindings.findChildViewById(rootView, id);
       if (floatingSOSToggleButton == null) {
@@ -115,7 +105,7 @@ public final class ActivityMainBinding implements ViewBinding {
       }
 
       return new ActivityMainBinding((ConstraintLayout) rootView, cancelButton, countdownText,
-          emergencyButton, emergencyOptionsButton, floatingSOSToggleButton, settingsButton);
+          emergencyButton, floatingSOSToggleButton, settingsButton);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

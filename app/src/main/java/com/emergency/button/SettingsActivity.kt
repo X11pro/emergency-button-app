@@ -101,6 +101,10 @@ class SettingsActivity : AppCompatActivity() {
                 testLocation()
             }
             
+            binding.emergencyOptionsButton.setOnClickListener {
+                showEmergencyOptionsDialog()
+            }
+            
             binding.testModeSwitch.setOnCheckedChangeListener { _, isChecked ->
                 emergencyPreferences.setTestMode(isChecked)
                 updateTestModeUI(isChecked)
@@ -301,6 +305,43 @@ class SettingsActivity : AppCompatActivity() {
                     .show()
             }
         }
+    }
+    
+    private fun showEmergencyOptionsDialog() {
+        val options = arrayOf("SMS + Call", "SMS Only", "Call Only")
+        
+        android.util.Log.d("SettingsActivity", "Showing emergency options dialog")
+        
+        AlertDialog.Builder(this)
+            .setTitle("Emergency Options")
+            .setMessage("Choose how the main emergency button works:")
+            .setItems(options) { _, which ->
+                android.util.Log.d("SettingsActivity", "Option selected: $which")
+                when (which) {
+                    0 -> {
+                        android.util.Log.d("SettingsActivity", "Selected: SMS + Call")
+                        saveEmergencyOption("SMS + Call", sendSMS = true, makeCall = true)
+                    }
+                    1 -> {
+                        android.util.Log.d("SettingsActivity", "Selected: SMS Only")
+                        saveEmergencyOption("SMS Only", sendSMS = true, makeCall = false)
+                    }
+                    2 -> {
+                        android.util.Log.d("SettingsActivity", "Selected: Call Only")
+                        saveEmergencyOption("Call Only", sendSMS = false, makeCall = true)
+                    }
+                }
+            }
+            .setNegativeButton("Cancel") { _, _ ->
+                android.util.Log.d("SettingsActivity", "Emergency options cancelled")
+            }
+            .show()
+    }
+    
+    private fun saveEmergencyOption(optionName: String, sendSMS: Boolean, makeCall: Boolean) {
+        // Save the emergency option preference
+        emergencyPreferences.setEmergencyOption(optionName, sendSMS, makeCall)
+        Toast.makeText(this, "Emergency option set to: $optionName", Toast.LENGTH_SHORT).show()
     }
     
     private fun updateTestModeUI(enabled: Boolean) {

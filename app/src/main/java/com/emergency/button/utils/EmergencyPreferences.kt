@@ -16,6 +16,9 @@ class EmergencyPreferences(private val context: Context) {
         private const val KEY_AUTO_CALL = "auto_call"
         private const val KEY_AUTO_SMS = "auto_sms"
         private const val KEY_PHYSICAL_ALERTS = "physical_alerts"
+        private const val KEY_EMERGENCY_OPTION_NAME = "emergency_option_name"
+        private const val KEY_EMERGENCY_SEND_SMS = "emergency_send_sms"
+        private const val KEY_EMERGENCY_MAKE_CALL = "emergency_make_call"
     }
     
     fun getEmergencyMessage(): String {
@@ -132,6 +135,33 @@ class EmergencyPreferences(private val context: Context) {
         }
     }
     
+    fun setEmergencyOption(optionName: String, sendSMS: Boolean, makeCall: Boolean): Boolean {
+        return try {
+            sharedPreferences.edit()
+                .putString(KEY_EMERGENCY_OPTION_NAME, optionName)
+                .putBoolean(KEY_EMERGENCY_SEND_SMS, sendSMS)
+                .putBoolean(KEY_EMERGENCY_MAKE_CALL, makeCall)
+                .apply()
+            android.util.Log.d(TAG, "Emergency option saved: $optionName (SMS: $sendSMS, Call: $makeCall)")
+            true
+        } catch (e: Exception) {
+            android.util.Log.e(TAG, "Error saving emergency option", e)
+            false
+        }
+    }
+    
+    fun getEmergencyOptionName(): String {
+        return sharedPreferences.getString(KEY_EMERGENCY_OPTION_NAME, "SMS + Call") ?: "SMS + Call"
+    }
+    
+    fun getEmergencySendSMS(): Boolean {
+        return sharedPreferences.getBoolean(KEY_EMERGENCY_SEND_SMS, true)
+    }
+    
+    fun getEmergencyMakeCall(): Boolean {
+        return sharedPreferences.getBoolean(KEY_EMERGENCY_MAKE_CALL, true)
+    }
+    
     fun getAllSettings(): Map<String, Any> {
         return mapOf(
             "emergency_message" to getEmergencyMessage(),
@@ -140,7 +170,10 @@ class EmergencyPreferences(private val context: Context) {
             "widget_enabled" to isWidgetEnabled(),
             "auto_call" to isAutoCallEnabled(),
             "auto_sms" to isAutoSMSEnabled(),
-            "physical_alerts" to isPhysicalAlertsEnabled()
+            "physical_alerts" to isPhysicalAlertsEnabled(),
+            "emergency_option_name" to getEmergencyOptionName(),
+            "emergency_send_sms" to getEmergencySendSMS(),
+            "emergency_make_call" to getEmergencyMakeCall()
         )
     }
 }

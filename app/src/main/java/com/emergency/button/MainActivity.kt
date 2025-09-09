@@ -74,11 +74,6 @@ class MainActivity : AppCompatActivity() {
         binding.floatingSOSToggleButton.setOnClickListener {
             toggleFloatingSOS()
         }
-        
-        // Emergency options button click
-        binding.emergencyOptionsButton.setOnClickListener {
-            showEmergencyOptionsDialog()
-        }
     }
     
     private fun checkPermissions() {
@@ -107,8 +102,13 @@ class MainActivity : AppCompatActivity() {
             return
         }
         
-        // Direct emergency execution (SMS + Call)
-        startCountdownWithOptions(sendSMS = true, makeCall = true)
+        // Get emergency options from preferences
+        val emergencyPreferences = com.emergency.button.utils.EmergencyPreferences(this)
+        val sendSMS = emergencyPreferences.getEmergencySendSMS()
+        val makeCall = emergencyPreferences.getEmergencyMakeCall()
+        
+        // Direct emergency execution with saved options
+        startCountdownWithOptions(sendSMS = sendSMS, makeCall = makeCall)
     }
     
     private fun showEmergencyOptionsDialog() {

@@ -8,6 +8,10 @@
         "source": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-main-50:/layout/activity_main.xml"
     },
     {
+        "merged": "com.emergency.button.app-mergeDebugResources-47:/layout/activity_settings.xml",
+        "source": "com.emergency.button.app-main-50:/layout/activity_settings.xml"
+    },
+    {
         "merged": "com.emergency.button.app-mergeDebugResources-47:/layout/activity_main.xml",
         "source": "com.emergency.button.app-main-50:/layout/activity_main.xml"
     },
