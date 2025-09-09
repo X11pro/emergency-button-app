@@ -38,7 +38,7 @@ class EmergencyWidget : AppWidgetProvider() {
             
             val emergencyPendingIntent = PendingIntent.getActivity(
                 context,
-                0,
+                appWidgetId, // Use appWidgetId for uniqueness
                 emergencyIntent,
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
                     PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
@@ -51,6 +51,8 @@ class EmergencyWidget : AppWidgetProvider() {
             
             // Update widget
             appWidgetManager.updateAppWidget(appWidgetId, views)
+            
+            android.util.Log.d("EmergencyWidget", "Widget updated successfully for ID: $appWidgetId")
             
         } catch (e: Exception) {
             android.util.Log.e("EmergencyWidget", "Error updating widget", e)

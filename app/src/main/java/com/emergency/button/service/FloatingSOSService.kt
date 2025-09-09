@@ -130,21 +130,22 @@ class FloatingSOSService : Service() {
         Log.d(TAG, "SOS button pressed - triggering emergency")
         
         if (emergencyManager?.hasEmergencyContacts() == true) {
-            emergencyManager?.executeEmergency { success ->
+            // For floating SOS, use SMS + Call by default
+            emergencyManager?.executeEmergencyWithOptions({ success ->
                 if (success) {
                     Log.d(TAG, "Emergency executed successfully")
                     // Show toast on main thread
                     android.os.Handler(android.os.Looper.getMainLooper()).post {
-                        Toast.makeText(this@FloatingSOSService, "Emergency message sent!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@FloatingSOSService, "Emergency SMS and call sent!", Toast.LENGTH_SHORT).show()
                     }
                 } else {
                     Log.e(TAG, "Emergency execution failed")
                     // Show toast on main thread
                     android.os.Handler(android.os.Looper.getMainLooper()).post {
-                        Toast.makeText(this@FloatingSOSService, "Failed to send emergency message", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@FloatingSOSService, "Failed to send emergency", Toast.LENGTH_SHORT).show()
                     }
                 }
-            }
+            }, sendSMS = true, makeCall = true)
         } else {
             Log.w(TAG, "No emergency contacts available")
             // Show toast on main thread

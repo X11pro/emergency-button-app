@@ -43,9 +43,13 @@ class EmergencyManager(private val context: Context) {
     }
     
     fun executeEmergency(callback: (Boolean) -> Unit) {
+        executeEmergencyWithOptions(callback, sendSMS = true, makeCall = true)
+    }
+    
+    fun executeEmergencyWithOptions(callback: (Boolean) -> Unit, sendSMS: Boolean = true, makeCall: Boolean = true) {
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                Log.d(TAG, "Executing emergency sequence")
+                Log.d(TAG, "Executing emergency sequence - SMS: $sendSMS, Call: $makeCall")
                 
                 // Get location
                 val location = getCurrentLocation()
@@ -53,17 +57,24 @@ class EmergencyManager(private val context: Context) {
                 // Get emergency message
                 val message = emergencyPreferences.getEmergencyMessage()
                 
-                // Send SMS to all contacts
-                val smsSuccess = sendEmergencySMS(location, message)
+                var smsSuccess = false
+                var callSuccess = false
                 
-                // Make emergency call to first contact
-                val callSuccess = makeEmergencyCall()
+                // Send SMS to all contacts if requested
+                if (sendSMS) {
+                    smsSuccess = sendEmergencySMS(location, message)
+                }
+                
+                // Make emergency call to first contact if requested
+                if (makeCall) {
+                    callSuccess = makeEmergencyCall()
+                }
                 
                 // Activate physical alerts
                 activatePhysicalAlerts()
                 
-                // Return success if at least SMS or call worked
-                val success = smsSuccess || callSuccess
+                // Return success if at least one action worked
+                val success = smsSuccess || callSuccess || (!sendSMS && !makeCall)
                 callback(success)
                 
             } catch (e: Exception) {

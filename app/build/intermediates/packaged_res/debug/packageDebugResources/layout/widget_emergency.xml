@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/widget_background"
+    android:gravity="center"
+    android:orientation="vertical"
     android:padding="8dp">
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/widgetEmergencyButton"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -14,7 +16,7 @@
         android:text="@string/widget_emergency_button"
         android:textAllCaps="true"
         android:textColor="@color/widget_text"
-        android:textSize="16sp"
+        android:textSize="14sp"
         android:textStyle="bold" />
 
-</FrameLayout>
+</LinearLayout>

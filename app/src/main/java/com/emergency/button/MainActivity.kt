@@ -102,19 +102,47 @@ class MainActivity : AppCompatActivity() {
             return
         }
         
+        showEmergencyOptionsDialog()
+    }
+    
+    private fun showEmergencyOptionsDialog() {
+        val options = arrayOf("SMS + Call", "SMS Only", "Call Only")
+        
+        AlertDialog.Builder(this)
+            .setTitle("Emergency Options")
+            .setMessage("Choose how to send the emergency alert:")
+            .setItems(options) { _, which ->
+                when (which) {
+                    0 -> startCountdownWithOptions(sendSMS = true, makeCall = true)
+                    1 -> startCountdownWithOptions(sendSMS = true, makeCall = false)
+                    2 -> startCountdownWithOptions(sendSMS = false, makeCall = true)
+                }
+            }
+            .setNegativeButton("Cancel", null)
+            .show()
+    }
+    
+    private fun startCountdownWithOptions(sendSMS: Boolean, makeCall: Boolean) {
         isEmergencyActive = true
         binding.emergencyButton.isEnabled = false
         binding.countdownText.visibility = View.VISIBLE
         binding.cancelButton.visibility = View.VISIBLE
         
+        val actionText = when {
+            sendSMS && makeCall -> "SMS + Call"
+            sendSMS -> "SMS Only"
+            makeCall -> "Call Only"
+            else -> "Emergency"
+        }
+        
         countdownTimer = object : CountDownTimer(5000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 val secondsLeft = (millisUntilFinished / 1000).toInt()
-                binding.countdownText.text = getString(R.string.countdown_text, secondsLeft)
+                binding.countdownText.text = "$actionText in $secondsLeft seconds"
             }
             
             override fun onFinish() {
-                executeEmergency()
+                executeEmergencyWithOptions(sendSMS, makeCall)
             }
         }.start()
     }
@@ -125,18 +153,34 @@ class MainActivity : AppCompatActivity() {
     }
     
     private fun executeEmergency() {
-        binding.countdownText.text = getString(R.string.sending_emergency)
+        executeEmergencyWithOptions(sendSMS = true, makeCall = true)
+    }
+    
+    private fun executeEmergencyWithOptions(sendSMS: Boolean, makeCall: Boolean) {
+        val actionText = when {
+            sendSMS && makeCall -> "Sending SMS + Call..."
+            sendSMS -> "Sending SMS..."
+            makeCall -> "Making call..."
+            else -> "Sending emergency..."
+        }
+        binding.countdownText.text = actionText
         
-        emergencyManager.executeEmergency { success ->
+        emergencyManager.executeEmergencyWithOptions({ success ->
             runOnUiThread {
                 if (success) {
-                    Toast.makeText(this, R.string.emergency_sent, Toast.LENGTH_LONG).show()
+                    val successText = when {
+                        sendSMS && makeCall -> "Emergency SMS and call sent!"
+                        sendSMS -> "Emergency SMS sent!"
+                        makeCall -> "Emergency call made!"
+                        else -> "Emergency sent!"
+                    }
+                    Toast.makeText(this, successText, Toast.LENGTH_LONG).show()
                 } else {
                     Toast.makeText(this, R.string.emergency_failed, Toast.LENGTH_LONG).show()
                 }
                 resetEmergencyUI()
             }
-        }
+        }, sendSMS, makeCall)
     }
     
     private fun resetEmergencyUI() {
