@@ -27,25 +27,34 @@ class EmergencyWidget : AppWidgetProvider() {
         appWidgetManager: AppWidgetManager,
         appWidgetId: Int
     ) {
-        val views = RemoteViews(context.packageName, R.layout.widget_emergency)
-        
-        // Create intent for emergency button click
-        val emergencyIntent = Intent(context, MainActivity::class.java).apply {
-            action = "EMERGENCY_WIDGET_CLICK"
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+        try {
+            val views = RemoteViews(context.packageName, R.layout.widget_emergency)
+            
+            // Create intent for emergency button click
+            val emergencyIntent = Intent(context, MainActivity::class.java).apply {
+                action = "EMERGENCY_WIDGET_CLICK"
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+            }
+            
+            val emergencyPendingIntent = PendingIntent.getActivity(
+                context,
+                0,
+                emergencyIntent,
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+                    PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+                } else {
+                    PendingIntent.FLAG_UPDATE_CURRENT
+                }
+            )
+            
+            views.setOnClickPendingIntent(R.id.widgetEmergencyButton, emergencyPendingIntent)
+            
+            // Update widget
+            appWidgetManager.updateAppWidget(appWidgetId, views)
+            
+        } catch (e: Exception) {
+            android.util.Log.e("EmergencyWidget", "Error updating widget", e)
         }
-        
-        val emergencyPendingIntent = PendingIntent.getActivity(
-            context,
-            0,
-            emergencyIntent,
-            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
-        )
-        
-        views.setOnClickPendingIntent(R.id.widgetEmergencyButton, emergencyPendingIntent)
-        
-        // Update widget
-        appWidgetManager.updateAppWidget(appWidgetId, views)
     }
     
     override fun onEnabled(context: Context) {
