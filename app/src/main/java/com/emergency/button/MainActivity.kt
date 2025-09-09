@@ -102,23 +102,38 @@ class MainActivity : AppCompatActivity() {
             return
         }
         
+        Toast.makeText(this, "Showing emergency options...", Toast.LENGTH_SHORT).show()
         showEmergencyOptionsDialog()
     }
     
     private fun showEmergencyOptionsDialog() {
         val options = arrayOf("SMS + Call", "SMS Only", "Call Only")
         
+        android.util.Log.d("MainActivity", "Showing emergency options dialog")
+        
         AlertDialog.Builder(this)
             .setTitle("Emergency Options")
             .setMessage("Choose how to send the emergency alert:")
             .setItems(options) { _, which ->
+                android.util.Log.d("MainActivity", "Option selected: $which")
                 when (which) {
-                    0 -> startCountdownWithOptions(sendSMS = true, makeCall = true)
-                    1 -> startCountdownWithOptions(sendSMS = true, makeCall = false)
-                    2 -> startCountdownWithOptions(sendSMS = false, makeCall = true)
+                    0 -> {
+                        android.util.Log.d("MainActivity", "Selected: SMS + Call")
+                        startCountdownWithOptions(sendSMS = true, makeCall = true)
+                    }
+                    1 -> {
+                        android.util.Log.d("MainActivity", "Selected: SMS Only")
+                        startCountdownWithOptions(sendSMS = true, makeCall = false)
+                    }
+                    2 -> {
+                        android.util.Log.d("MainActivity", "Selected: Call Only")
+                        startCountdownWithOptions(sendSMS = false, makeCall = true)
+                    }
                 }
             }
-            .setNegativeButton("Cancel", null)
+            .setNegativeButton("Cancel") { _, _ ->
+                android.util.Log.d("MainActivity", "Emergency options cancelled")
+            }
             .show()
     }
     
