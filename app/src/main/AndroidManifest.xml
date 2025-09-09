@@ -13,6 +13,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <!-- Hardware Features -->
     <uses-feature android:name="android.hardware.camera" android:required="false" />
@@ -58,6 +59,12 @@
             android:enabled="true"
             android:exported="false"
             android:foregroundServiceType="location" />
+
+        <!-- Floating SOS Service -->
+        <service
+            android:name=".service.FloatingSOSService"
+            android:enabled="true"
+            android:exported="false" />
 
         <!-- Emergency Widget -->
         <receiver

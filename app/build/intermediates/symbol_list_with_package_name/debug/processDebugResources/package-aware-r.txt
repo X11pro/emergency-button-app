@@ -3214,6 +3214,7 @@ drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable preference_list_divider_material
+drawable sos_button_background
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -3426,6 +3427,7 @@ id fitXY
 id fixed
 id flip
 id floating
+id floatingSOSToggleButton
 id forever
 id fragment_container_view_tag
 id frost
@@ -3884,6 +3886,7 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout expand_button
+layout floating_sos_button
 layout image_frame
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
@@ -4072,6 +4075,12 @@ string expand_button_title
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
+string floating_sos_disabled
+string floating_sos_enabled
+string floating_sos_permission_message
+string floating_sos_permission_required
+string floating_sos_toggle_description
+string floating_sos_toggle_text
 string getting_location
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description

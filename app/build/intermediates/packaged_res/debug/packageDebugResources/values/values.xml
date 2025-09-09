@@ -54,6 +54,12 @@
     <string name="error_no_contacts">No emergency contacts configured</string>
     <string name="error_permissions_denied">Required permissions denied</string>
     <string name="error_sms_failed">Failed to send SMS</string>
+    <string name="floating_sos_disabled">Floating SOS button disabled</string>
+    <string name="floating_sos_enabled">Floating SOS button enabled</string>
+    <string name="floating_sos_permission_message">This app needs overlay permission to show the floating SOS button on your screen.</string>
+    <string name="floating_sos_permission_required">Overlay permission required for floating SOS</string>
+    <string name="floating_sos_toggle_description">Toggle floating SOS button on screen</string>
+    <string name="floating_sos_toggle_text">Show Floating SOS</string>
     <string name="getting_location">Getting your location...</string>
     <string name="making_call">Making emergency call...</string>
     <string name="no">No</string>

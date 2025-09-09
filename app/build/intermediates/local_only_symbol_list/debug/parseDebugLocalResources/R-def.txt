@@ -24,6 +24,7 @@ color widget_background
 color widget_text
 drawable emergency_button_background
 drawable ic_launcher_foreground
+drawable sos_button_background
 drawable widget_background
 drawable widget_preview
 id addContactButton
@@ -34,6 +35,7 @@ id contactsRecyclerView
 id countdownText
 id emergencyButton
 id emergencyMessageInput
+id floatingSOSToggleButton
 id removeButton
 id settingsButton
 id testEmergencyButton
@@ -42,6 +44,7 @@ id toolbar
 id widgetEmergencyButton
 layout activity_main
 layout activity_settings
+layout floating_sos_button
 layout item_contact
 layout widget_emergency
 mipmap ic_launcher
@@ -78,6 +81,12 @@ string error_location_unavailable
 string error_no_contacts
 string error_permissions_denied
 string error_sms_failed
+string floating_sos_disabled
+string floating_sos_enabled
+string floating_sos_permission_message
+string floating_sos_permission_required
+string floating_sos_toggle_description
+string floating_sos_toggle_text
 string getting_location
 string making_call
 string no

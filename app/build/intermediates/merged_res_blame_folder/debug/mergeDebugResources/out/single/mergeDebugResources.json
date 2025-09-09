@@ -1,94 +1,106 @@
 [
     {
-        "merged": "com.emergency.button.app-debug-48:/mipmap-xxxhdpi_ic_launcher.xml.flat",
-        "source": "com.emergency.button.app-main-50:/mipmap-xxxhdpi/ic_launcher.xml"
+        "merged": "com.emergency.button.app-debug-48:/layout_floating_sos_button.xml.flat",
+        "source": "com.emergency.button.app-main-50:/layout/floating_sos_button.xml"
+    },
+    {
+        "merged": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-debug-48:/layout_widget_emergency.xml.flat",
+        "source": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-main-50:/layout/widget_emergency.xml"
+    },
+    {
+        "merged": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-debug-48:/mipmap-xxxhdpi_ic_launcher.xml.flat",
+        "source": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-main-50:/mipmap-xxxhdpi/ic_launcher.xml"
+    },
+    {
+        "merged": "com.emergency.button.app-debug-48:/drawable_sos_button_background.xml.flat",
+        "source": "com.emergency.button.app-main-50:/drawable/sos_button_background.xml"
+    },
+    {
+        "merged": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-debug-48:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-main-50:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-debug-48:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-main-50:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-debug-48:/xml_backup_rules.xml.flat",
+        "source": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-main-50:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-debug-48:/layout_activity_main.xml.flat",
+        "source": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-main-50:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-debug-48:/xml_emergency_widget_info.xml.flat",
+        "source": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-main-50:/xml/emergency_widget_info.xml"
+    },
+    {
+        "merged": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-debug-48:/layout_item_contact.xml.flat",
+        "source": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-main-50:/layout/item_contact.xml"
+    },
+    {
+        "merged": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-debug-48:/mipmap-hdpi_ic_launcher_round.xml.flat",
+        "source": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-main-50:/mipmap-hdpi/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-debug-48:/mipmap-hdpi_ic_launcher.xml.flat",
+        "source": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-main-50:/mipmap-hdpi/ic_launcher.xml"
+    },
+    {
+        "merged": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-debug-48:/mipmap-xhdpi_ic_launcher.xml.flat",
+        "source": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-main-50:/mipmap-xhdpi/ic_launcher.xml"
+    },
+    {
+        "merged": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-debug-48:/mipmap-xxxhdpi_ic_launcher_round.xml.flat",
+        "source": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-main-50:/mipmap-xxxhdpi/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-debug-48:/mipmap-mdpi_ic_launcher_round.xml.flat",
+        "source": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-main-50:/mipmap-mdpi/ic_launcher_round.xml"
     },
     {
         "merged": "com.emergency.button.app-debug-48:/layout_activity_main.xml.flat",
         "source": "com.emergency.button.app-main-50:/layout/activity_main.xml"
     },
     {
-        "merged": "com.emergency.button.app-debug-48:/layout_item_contact.xml.flat",
-        "source": "com.emergency.button.app-main-50:/layout/item_contact.xml"
+        "merged": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-debug-48:/mipmap-xxhdpi_ic_launcher.xml.flat",
+        "source": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-main-50:/mipmap-xxhdpi/ic_launcher.xml"
     },
     {
-        "merged": "com.emergency.button.app-debug-48:/mipmap-xxhdpi_ic_launcher_round.xml.flat",
-        "source": "com.emergency.button.app-main-50:/mipmap-xxhdpi/ic_launcher_round.xml"
+        "merged": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-debug-48:/layout_activity_settings.xml.flat",
+        "source": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-main-50:/layout/activity_settings.xml"
     },
     {
-        "merged": "com.emergency.button.app-debug-48:/drawable_ic_launcher_foreground.xml.flat",
-        "source": "com.emergency.button.app-main-50:/drawable/ic_launcher_foreground.xml"
+        "merged": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-debug-48:/drawable_emergency_button_background.xml.flat",
+        "source": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-main-50:/drawable/emergency_button_background.xml"
     },
     {
-        "merged": "com.emergency.button.app-debug-48:/xml_data_extraction_rules.xml.flat",
-        "source": "com.emergency.button.app-main-50:/xml/data_extraction_rules.xml"
+        "merged": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-debug-48:/drawable_widget_background.xml.flat",
+        "source": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-main-50:/drawable/widget_background.xml"
     },
     {
-        "merged": "com.emergency.button.app-debug-48:/drawable_emergency_button_background.xml.flat",
-        "source": "com.emergency.button.app-main-50:/drawable/emergency_button_background.xml"
+        "merged": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-debug-48:/mipmap-xxhdpi_ic_launcher_round.xml.flat",
+        "source": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-main-50:/mipmap-xxhdpi/ic_launcher_round.xml"
     },
     {
-        "merged": "com.emergency.button.app-debug-48:/mipmap-xxhdpi_ic_launcher.xml.flat",
-        "source": "com.emergency.button.app-main-50:/mipmap-xxhdpi/ic_launcher.xml"
+        "merged": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-debug-48:/mipmap-xhdpi_ic_launcher_round.xml.flat",
+        "source": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-main-50:/mipmap-xhdpi/ic_launcher_round.xml"
     },
     {
-        "merged": "com.emergency.button.app-debug-48:/layout_widget_emergency.xml.flat",
-        "source": "com.emergency.button.app-main-50:/layout/widget_emergency.xml"
+        "merged": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-debug-48:/drawable_widget_preview.xml.flat",
+        "source": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-main-50:/drawable/widget_preview.xml"
     },
     {
-        "merged": "com.emergency.button.app-debug-48:/mipmap-xxxhdpi_ic_launcher_round.xml.flat",
-        "source": "com.emergency.button.app-main-50:/mipmap-xxxhdpi/ic_launcher_round.xml"
+        "merged": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-debug-48:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-main-50:/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "com.emergency.button.app-debug-48:/mipmap-hdpi_ic_launcher.xml.flat",
-        "source": "com.emergency.button.app-main-50:/mipmap-hdpi/ic_launcher.xml"
+        "merged": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-debug-48:/xml_data_extraction_rules.xml.flat",
+        "source": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-main-50:/xml/data_extraction_rules.xml"
     },
     {
-        "merged": "com.emergency.button.app-debug-48:/mipmap-mdpi_ic_launcher_round.xml.flat",
-        "source": "com.emergency.button.app-main-50:/mipmap-mdpi/ic_launcher_round.xml"
-    },
-    {
-        "merged": "com.emergency.button.app-debug-48:/xml_emergency_widget_info.xml.flat",
-        "source": "com.emergency.button.app-main-50:/xml/emergency_widget_info.xml"
-    },
-    {
-        "merged": "com.emergency.button.app-debug-48:/drawable_widget_background.xml.flat",
-        "source": "com.emergency.button.app-main-50:/drawable/widget_background.xml"
-    },
-    {
-        "merged": "com.emergency.button.app-debug-48:/mipmap-mdpi_ic_launcher.xml.flat",
-        "source": "com.emergency.button.app-main-50:/mipmap-mdpi/ic_launcher.xml"
-    },
-    {
-        "merged": "com.emergency.button.app-debug-48:/layout_activity_settings.xml.flat",
-        "source": "com.emergency.button.app-main-50:/layout/activity_settings.xml"
-    },
-    {
-        "merged": "com.emergency.button.app-debug-48:/xml_backup_rules.xml.flat",
-        "source": "com.emergency.button.app-main-50:/xml/backup_rules.xml"
-    },
-    {
-        "merged": "com.emergency.button.app-debug-48:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "com.emergency.button.app-main-50:/mipmap-anydpi-v26/ic_launcher_round.xml"
-    },
-    {
-        "merged": "com.emergency.button.app-debug-48:/mipmap-hdpi_ic_launcher_round.xml.flat",
-        "source": "com.emergency.button.app-main-50:/mipmap-hdpi/ic_launcher_round.xml"
-    },
-    {
-        "merged": "com.emergency.button.app-debug-48:/drawable_widget_preview.xml.flat",
-        "source": "com.emergency.button.app-main-50:/drawable/widget_preview.xml"
-    },
-    {
-        "merged": "com.emergency.button.app-debug-48:/mipmap-xhdpi_ic_launcher_round.xml.flat",
-        "source": "com.emergency.button.app-main-50:/mipmap-xhdpi/ic_launcher_round.xml"
-    },
-    {
-        "merged": "com.emergency.button.app-debug-48:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "com.emergency.button.app-main-50:/mipmap-anydpi-v26/ic_launcher.xml"
-    },
-    {
-        "merged": "com.emergency.button.app-debug-48:/mipmap-xhdpi_ic_launcher.xml.flat",
-        "source": "com.emergency.button.app-main-50:/mipmap-xhdpi/ic_launcher.xml"
+        "merged": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-debug-48:/mipmap-mdpi_ic_launcher.xml.flat",
+        "source": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-main-50:/mipmap-mdpi/ic_launcher.xml"
     }
 ]

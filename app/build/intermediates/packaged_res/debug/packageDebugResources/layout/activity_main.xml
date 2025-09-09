@@ -53,6 +53,19 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:visibility="visible" />
 
+    <!-- Floating SOS Toggle Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/floatingSOSToggleButton"
+        style="@style/SettingsButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/floating_sos_toggle_description"
+        android:text="@string/floating_sos_toggle_text"
+        app:layout_constraintBottom_toTopOf="@+id/settingsButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <!-- Settings Button -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/settingsButton"

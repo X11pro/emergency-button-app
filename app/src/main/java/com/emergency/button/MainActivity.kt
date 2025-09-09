@@ -12,7 +12,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.emergency.button.databinding.ActivityMainBinding
-
+import com.emergency.button.service.FloatingSOSService
 import com.emergency.button.utils.EmergencyManager
 import com.emergency.button.utils.PermissionManager
 
@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var permissionManager: PermissionManager
     private var countdownTimer: CountDownTimer? = null
     private var isEmergencyActive = false
+    private var isFloatingSOSActive = false
     
     // Permission launcher
     private val permissionLauncher = registerForActivityResult(
@@ -67,6 +68,11 @@ class MainActivity : AppCompatActivity() {
         // Settings button click
         binding.settingsButton.setOnClickListener {
             startSettingsActivity()
+        }
+        
+        // Floating SOS toggle button click
+        binding.floatingSOSToggleButton.setOnClickListener {
+            toggleFloatingSOS()
         }
     }
     
@@ -146,6 +152,46 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
     
+    private fun toggleFloatingSOS() {
+        if (isFloatingSOSActive) {
+            stopFloatingSOS()
+        } else {
+            startFloatingSOS()
+        }
+    }
+    
+    private fun startFloatingSOS() {
+        if (!FloatingSOSService.isOverlayPermissionGranted(this)) {
+            showOverlayPermissionDialog()
+            return
+        }
+        
+        val intent = Intent(this, FloatingSOSService::class.java)
+        startService(intent)
+        isFloatingSOSActive = true
+        binding.floatingSOSToggleButton.text = getString(R.string.floating_sos_disabled)
+        Toast.makeText(this, R.string.floating_sos_enabled, Toast.LENGTH_SHORT).show()
+    }
+    
+    private fun stopFloatingSOS() {
+        val intent = Intent(this, FloatingSOSService::class.java)
+        stopService(intent)
+        isFloatingSOSActive = false
+        binding.floatingSOSToggleButton.text = getString(R.string.floating_sos_toggle_text)
+        Toast.makeText(this, R.string.floating_sos_disabled, Toast.LENGTH_SHORT).show()
+    }
+    
+    private fun showOverlayPermissionDialog() {
+        AlertDialog.Builder(this)
+            .setTitle(R.string.floating_sos_permission_required)
+            .setMessage(R.string.floating_sos_permission_message)
+            .setPositiveButton(R.string.ok) { _, _ ->
+                FloatingSOSService.requestOverlayPermission(this)
+            }
+            .setNegativeButton(R.string.cancel, null)
+            .show()
+    }
+    
     private fun showPermissionDeniedDialog() {
         AlertDialog.Builder(this)
             .setTitle(R.string.error_permissions_denied)
@@ -160,6 +206,15 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         emergencyManager.initialize()
+        updateFloatingSOSButtonState()
+    }
+    
+    private fun updateFloatingSOSButtonState() {
+        // Check if overlay permission is still granted
+        if (!FloatingSOSService.isOverlayPermissionGranted(this)) {
+            isFloatingSOSActive = false
+            binding.floatingSOSToggleButton.text = getString(R.string.floating_sos_toggle_text)
+        }
     }
     
     override fun onDestroy() {
