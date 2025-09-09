@@ -35,6 +35,7 @@ id contactsRecyclerView
 id countdownText
 id emergencyButton
 id emergencyMessageInput
+id emergencyOptionsButton
 id floatingSOSToggleButton
 id removeButton
 id settingsButton

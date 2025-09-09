@@ -8,6 +8,7 @@ import android.content.Intent
 import android.widget.RemoteViews
 import com.emergency.button.MainActivity
 import com.emergency.button.R
+import com.emergency.button.service.EmergencyService
 import com.emergency.button.utils.EmergencyManager
 
 class EmergencyWidget : AppWidgetProvider() {
@@ -30,13 +31,13 @@ class EmergencyWidget : AppWidgetProvider() {
         try {
             val views = RemoteViews(context.packageName, R.layout.widget_emergency)
             
-            // Create intent for emergency button click
-            val emergencyIntent = Intent(context, MainActivity::class.java).apply {
-                action = "EMERGENCY_WIDGET_CLICK"
-                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+            // Create intent for emergency service (not activity)
+            val emergencyIntent = Intent(context, EmergencyService::class.java).apply {
+                action = "EMERGENCY_WIDGET_TRIGGER"
+                putExtra("source", "widget")
             }
             
-            val emergencyPendingIntent = PendingIntent.getActivity(
+            val emergencyPendingIntent = PendingIntent.getService(
                 context,
                 appWidgetId, // Use appWidgetId for uniqueness
                 emergencyIntent,

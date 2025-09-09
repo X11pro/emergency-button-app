@@ -3407,6 +3407,7 @@ id elastic
 id embed
 id emergencyButton
 id emergencyMessageInput
+id emergencyOptionsButton
 id end
 id endToStart
 id enterAlways

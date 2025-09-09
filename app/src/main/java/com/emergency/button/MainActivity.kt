@@ -74,6 +74,11 @@ class MainActivity : AppCompatActivity() {
         binding.floatingSOSToggleButton.setOnClickListener {
             toggleFloatingSOS()
         }
+        
+        // Emergency options button click
+        binding.emergencyOptionsButton.setOnClickListener {
+            showEmergencyOptionsDialog()
+        }
     }
     
     private fun checkPermissions() {
@@ -102,8 +107,8 @@ class MainActivity : AppCompatActivity() {
             return
         }
         
-        Toast.makeText(this, "Showing emergency options...", Toast.LENGTH_SHORT).show()
-        showEmergencyOptionsDialog()
+        // Direct emergency execution (SMS + Call)
+        startCountdownWithOptions(sendSMS = true, makeCall = true)
     }
     
     private fun showEmergencyOptionsDialog() {
