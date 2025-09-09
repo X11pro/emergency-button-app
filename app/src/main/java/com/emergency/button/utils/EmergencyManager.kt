@@ -262,4 +262,27 @@ class EmergencyManager(private val context: Context) {
         Log.d(TAG, "Testing emergency system")
         executeEmergency(callback)
     }
+    
+    fun testLocation(callback: (String) -> Unit) {
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                Log.d(TAG, "Testing location functionality")
+                val location = getCurrentLocation()
+                
+                val locationText = if (location != null) {
+                    val googleMapsUrl = "https://maps.google.com/?q=${location.latitude},${location.longitude}"
+                    "Location found: ${location.latitude}, ${location.longitude}\nGoogle Maps: $googleMapsUrl"
+                } else {
+                    "Location unavailable - check permissions and GPS"
+                }
+                
+                Log.d(TAG, "Location test result: $locationText")
+                callback(locationText)
+                
+            } catch (e: Exception) {
+                Log.e(TAG, "Error testing location", e)
+                callback("Error getting location: ${e.message}")
+            }
+        }
+    }
 }

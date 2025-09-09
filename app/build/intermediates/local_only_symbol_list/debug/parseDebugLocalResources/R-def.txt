@@ -39,6 +39,7 @@ id floatingSOSToggleButton
 id removeButton
 id settingsButton
 id testEmergencyButton
+id testLocationButton
 id testModeSwitch
 id toolbar
 id widgetEmergencyButton

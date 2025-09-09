@@ -1,15 +1,15 @@
 [
     {
-        "merged": "com.emergency.button.app-mergeDebugResources-47:/layout/floating_sos_button.xml",
-        "source": "com.emergency.button.app-main-50:/layout/floating_sos_button.xml"
+        "merged": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-mergeDebugResources-47:/layout/floating_sos_button.xml",
+        "source": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-main-50:/layout/floating_sos_button.xml"
     },
     {
         "merged": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-mergeDebugResources-47:/layout/activity_main.xml",
         "source": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-main-50:/layout/activity_main.xml"
     },
     {
-        "merged": "com.emergency.button.app-mergeDebugResources-47:/layout/activity_main.xml",
-        "source": "com.emergency.button.app-main-50:/layout/activity_main.xml"
+        "merged": "com.emergency.button.app-mergeDebugResources-47:/layout/activity_settings.xml",
+        "source": "com.emergency.button.app-main-50:/layout/activity_settings.xml"
     },
     {
         "merged": "/home/lnx-ubt/.gradle/daemon/8.13/com.emergency.button.app-mergeDebugResources-47:/layout/activity_settings.xml",

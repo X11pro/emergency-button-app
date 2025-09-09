@@ -97,6 +97,10 @@ class SettingsActivity : AppCompatActivity() {
                 testEmergency()
             }
             
+            binding.testLocationButton.setOnClickListener {
+                testLocation()
+            }
+            
             binding.testModeSwitch.setOnCheckedChangeListener { _, isChecked ->
                 emergencyPreferences.setTestMode(isChecked)
                 updateTestModeUI(isChecked)
@@ -283,6 +287,20 @@ class SettingsActivity : AppCompatActivity() {
             }
             .setNegativeButton(R.string.no, null)
             .show()
+    }
+    
+    private fun testLocation() {
+        Toast.makeText(this, "Testing location...", Toast.LENGTH_SHORT).show()
+        
+        emergencyManager.testLocation { locationResult ->
+            runOnUiThread {
+                AlertDialog.Builder(this)
+                    .setTitle("Location Test Result")
+                    .setMessage(locationResult)
+                    .setPositiveButton("OK", null)
+                    .show()
+            }
+        }
     }
     
     private fun updateTestModeUI(enabled: Boolean) {

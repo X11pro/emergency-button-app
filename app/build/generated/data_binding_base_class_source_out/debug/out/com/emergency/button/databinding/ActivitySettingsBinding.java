@@ -36,6 +36,9 @@ public final class ActivitySettingsBinding implements ViewBinding {
   public final MaterialButton testEmergencyButton;
 
   @NonNull
+  public final MaterialButton testLocationButton;
+
+  @NonNull
   public final SwitchMaterial testModeSwitch;
 
   @NonNull
@@ -44,12 +47,14 @@ public final class ActivitySettingsBinding implements ViewBinding {
   private ActivitySettingsBinding(@NonNull CoordinatorLayout rootView,
       @NonNull MaterialButton addContactButton, @NonNull RecyclerView contactsRecyclerView,
       @NonNull TextInputEditText emergencyMessageInput, @NonNull MaterialButton testEmergencyButton,
-      @NonNull SwitchMaterial testModeSwitch, @NonNull MaterialToolbar toolbar) {
+      @NonNull MaterialButton testLocationButton, @NonNull SwitchMaterial testModeSwitch,
+      @NonNull MaterialToolbar toolbar) {
     this.rootView = rootView;
     this.addContactButton = addContactButton;
     this.contactsRecyclerView = contactsRecyclerView;
     this.emergencyMessageInput = emergencyMessageInput;
     this.testEmergencyButton = testEmergencyButton;
+    this.testLocationButton = testLocationButton;
     this.testModeSwitch = testModeSwitch;
     this.toolbar = toolbar;
   }
@@ -105,6 +110,12 @@ public final class ActivitySettingsBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.testLocationButton;
+      MaterialButton testLocationButton = ViewBindings.findChildViewById(rootView, id);
+      if (testLocationButton == null) {
+        break missingId;
+      }
+
       id = R.id.testModeSwitch;
       SwitchMaterial testModeSwitch = ViewBindings.findChildViewById(rootView, id);
       if (testModeSwitch == null) {
@@ -118,8 +129,8 @@ public final class ActivitySettingsBinding implements ViewBinding {
       }
 
       return new ActivitySettingsBinding((CoordinatorLayout) rootView, addContactButton,
-          contactsRecyclerView, emergencyMessageInput, testEmergencyButton, testModeSwitch,
-          toolbar);
+          contactsRecyclerView, emergencyMessageInput, testEmergencyButton, testLocationButton,
+          testModeSwitch, toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

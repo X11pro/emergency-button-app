@@ -154,14 +154,33 @@
                         android:textColor="@color/text_secondary_dark"
                         android:textSize="14sp" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/testEmergencyButton"
-                        style="@style/Widget.Material3.Button"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/warning_orange"
-                        android:text="@string/test_emergency"
-                        android:textColor="@color/text_primary_dark" />
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/testEmergencyButton"
+                            style="@style/Widget.Material3.Button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:backgroundTint="@color/warning_orange"
+                            android:text="@string/test_emergency"
+                            android:textColor="@color/text_primary_dark" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/testLocationButton"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="Test Location"
+                            android:textColor="@color/text_primary_dark"
+                            app:strokeColor="@color/info_blue" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
