@@ -41,7 +41,7 @@
     <string name="emergency_failed">Emergency alert failed</string>
     
     <!-- Widget -->
-    <string name="widget_emergency_button">EMERGENCY</string>
+    <string name="widget_emergency_button">SOS</string>
     <string name="widget_configure">Configure Emergency Button</string>
     
     <!-- Notifications -->

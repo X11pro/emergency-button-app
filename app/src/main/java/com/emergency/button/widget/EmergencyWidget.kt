@@ -29,26 +29,37 @@ class EmergencyWidget : AppWidgetProvider() {
         appWidgetId: Int
     ) {
         try {
+            android.util.Log.d("EmergencyWidget", "Updating widget for ID: $appWidgetId")
             val views = RemoteViews(context.packageName, R.layout.widget_emergency)
             
-            // Create intent for emergency service (not activity)
+            // Create intent for emergency service
             val emergencyIntent = Intent(context, EmergencyService::class.java).apply {
                 action = "EMERGENCY_WIDGET_TRIGGER"
                 putExtra("source", "widget")
+                putExtra("widgetId", appWidgetId)
+            }
+            
+            android.util.Log.d("EmergencyWidget", "Created emergency intent: $emergencyIntent")
+            
+            // Create PendingIntent with proper flags
+            val flags = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+                PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+            } else {
+                PendingIntent.FLAG_UPDATE_CURRENT
             }
             
             val emergencyPendingIntent = PendingIntent.getService(
                 context,
-                appWidgetId, // Use appWidgetId for uniqueness
+                appWidgetId + 1000, // Ensure uniqueness
                 emergencyIntent,
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-                    PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
-                } else {
-                    PendingIntent.FLAG_UPDATE_CURRENT
-                }
+                flags
             )
             
+            android.util.Log.d("EmergencyWidget", "Created pending intent: $emergencyPendingIntent")
+            
+            // Set click listener
             views.setOnClickPendingIntent(R.id.widgetEmergencyButton, emergencyPendingIntent)
+            android.util.Log.d("EmergencyWidget", "Set click pending intent for button")
             
             // Update widget
             appWidgetManager.updateAppWidget(appWidgetId, views)

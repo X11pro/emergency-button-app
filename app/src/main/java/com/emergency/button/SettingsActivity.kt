@@ -311,32 +311,22 @@ class SettingsActivity : AppCompatActivity() {
     
     private fun showEmergencyOptionsDialog() {
         try {
-            val options = arrayOf("SMS + Call", "SMS Only", "Call Only")
-            
             android.util.Log.d("SettingsActivity", "Showing emergency options dialog")
             
             val dialog = AlertDialog.Builder(this)
                 .setTitle("Emergency Options")
                 .setMessage("Choose how the main emergency button works:")
-                .setItems(options) { _, which ->
-                    android.util.Log.d("SettingsActivity", "Option selected: $which")
-                    when (which) {
-                        0 -> {
-                            android.util.Log.d("SettingsActivity", "Selected: SMS + Call")
-                            saveEmergencyOption("SMS + Call", sendSMS = true, makeCall = true)
-                        }
-                        1 -> {
-                            android.util.Log.d("SettingsActivity", "Selected: SMS Only")
-                            saveEmergencyOption("SMS Only", sendSMS = true, makeCall = false)
-                        }
-                        2 -> {
-                            android.util.Log.d("SettingsActivity", "Selected: Call Only")
-                            saveEmergencyOption("Call Only", sendSMS = false, makeCall = true)
-                        }
-                    }
+                .setPositiveButton("SMS + Call") { _, _ ->
+                    android.util.Log.d("SettingsActivity", "Selected: SMS + Call")
+                    saveEmergencyOption("SMS + Call", sendSMS = true, makeCall = true)
                 }
-                .setNegativeButton("Cancel") { _, _ ->
-                    android.util.Log.d("SettingsActivity", "Emergency options cancelled")
+                .setNeutralButton("SMS Only") { _, _ ->
+                    android.util.Log.d("SettingsActivity", "Selected: SMS Only")
+                    saveEmergencyOption("SMS Only", sendSMS = true, makeCall = false)
+                }
+                .setNegativeButton("Call Only") { _, _ ->
+                    android.util.Log.d("SettingsActivity", "Selected: Call Only")
+                    saveEmergencyOption("Call Only", sendSMS = false, makeCall = true)
                 }
                 .create()
             

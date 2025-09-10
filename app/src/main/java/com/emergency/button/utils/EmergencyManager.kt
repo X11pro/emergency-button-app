@@ -139,7 +139,12 @@ class EmergencyManager(private val context: Context) {
                 "Location unavailable"
             }
             
-            val fullMessage = "$message $locationText"
+            // Ensure the message includes location information
+            val fullMessage = if (message.contains("location", ignoreCase = true)) {
+                "$message $locationText"
+            } else {
+                "$message\n\nLocation: $locationText"
+            }
             
             var successCount = 0
             for (contact in contacts) {
