@@ -102,6 +102,8 @@ class SettingsActivity : AppCompatActivity() {
             }
             
             binding.emergencyOptionsButton.setOnClickListener {
+                android.util.Log.d("SettingsActivity", "Emergency options button clicked")
+                Toast.makeText(this, "Opening emergency options...", Toast.LENGTH_SHORT).show()
                 showEmergencyOptionsDialog()
             }
             
@@ -308,34 +310,43 @@ class SettingsActivity : AppCompatActivity() {
     }
     
     private fun showEmergencyOptionsDialog() {
-        val options = arrayOf("SMS + Call", "SMS Only", "Call Only")
-        
-        android.util.Log.d("SettingsActivity", "Showing emergency options dialog")
-        
-        AlertDialog.Builder(this)
-            .setTitle("Emergency Options")
-            .setMessage("Choose how the main emergency button works:")
-            .setItems(options) { _, which ->
-                android.util.Log.d("SettingsActivity", "Option selected: $which")
-                when (which) {
-                    0 -> {
-                        android.util.Log.d("SettingsActivity", "Selected: SMS + Call")
-                        saveEmergencyOption("SMS + Call", sendSMS = true, makeCall = true)
-                    }
-                    1 -> {
-                        android.util.Log.d("SettingsActivity", "Selected: SMS Only")
-                        saveEmergencyOption("SMS Only", sendSMS = true, makeCall = false)
-                    }
-                    2 -> {
-                        android.util.Log.d("SettingsActivity", "Selected: Call Only")
-                        saveEmergencyOption("Call Only", sendSMS = false, makeCall = true)
+        try {
+            val options = arrayOf("SMS + Call", "SMS Only", "Call Only")
+            
+            android.util.Log.d("SettingsActivity", "Showing emergency options dialog")
+            
+            val dialog = AlertDialog.Builder(this)
+                .setTitle("Emergency Options")
+                .setMessage("Choose how the main emergency button works:")
+                .setItems(options) { _, which ->
+                    android.util.Log.d("SettingsActivity", "Option selected: $which")
+                    when (which) {
+                        0 -> {
+                            android.util.Log.d("SettingsActivity", "Selected: SMS + Call")
+                            saveEmergencyOption("SMS + Call", sendSMS = true, makeCall = true)
+                        }
+                        1 -> {
+                            android.util.Log.d("SettingsActivity", "Selected: SMS Only")
+                            saveEmergencyOption("SMS Only", sendSMS = true, makeCall = false)
+                        }
+                        2 -> {
+                            android.util.Log.d("SettingsActivity", "Selected: Call Only")
+                            saveEmergencyOption("Call Only", sendSMS = false, makeCall = true)
+                        }
                     }
                 }
-            }
-            .setNegativeButton("Cancel") { _, _ ->
-                android.util.Log.d("SettingsActivity", "Emergency options cancelled")
-            }
-            .show()
+                .setNegativeButton("Cancel") { _, _ ->
+                    android.util.Log.d("SettingsActivity", "Emergency options cancelled")
+                }
+                .create()
+            
+            dialog.show()
+            android.util.Log.d("SettingsActivity", "Dialog shown successfully")
+            
+        } catch (e: Exception) {
+            android.util.Log.e("SettingsActivity", "Error showing emergency options dialog", e)
+            Toast.makeText(this, "Error opening options: ${e.message}", Toast.LENGTH_LONG).show()
+        }
     }
     
     private fun saveEmergencyOption(optionName: String, sendSMS: Boolean, makeCall: Boolean) {
