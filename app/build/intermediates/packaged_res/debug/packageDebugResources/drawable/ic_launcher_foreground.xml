@@ -4,13 +4,38 @@
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
+    
+    <!-- Medical cross - horizontal line -->
     <path
         android:fillColor="#FFFFFF"
-        android:pathData="M54,54m-40,0a40,40 0,1 1,80 0a40,40 0,1 1,-80 0"/>
+        android:pathData="M20,48 L88,48 L88,60 L20,60 L20,48 Z" />
+    
+    <!-- Medical cross - vertical line -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M48,20 L60,20 L60,88 L48,88 L48,20 Z" />
+    
+    <!-- Phone body -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M70,30 L70,78 L78,78 L78,30 L70,30 Z" />
+    
+    <!-- Phone earpiece -->
     <path
         android:fillColor="#FF0000"
-        android:pathData="M54,20m-20,0a20,20 0,1 1,40 0a20,20 0,1 1,-40 0"/>
+        android:pathData="M72,32 L76,32 L76,35 L72,35 L72,32 Z" />
+    
+    <!-- Phone mouthpiece -->
+    <path
+        android:fillColor="#FF0000"
+        android:pathData="M72,75 L76,75 L76,78 L72,78 L72,75 Z" />
+    
+    <!-- Phone cord -->
     <path
         android:fillColor="#FFFFFF"
-        android:pathData="M54,30m-10,0a10,10 0,1 1,20 0a10,10 0,1 1,-20 0"/>
+        android:pathData="M78,54 Q88,54 88,64 Q88,74 78,74"
+        android:strokeWidth="3"
+        android:strokeColor="#FFFFFF"
+        android:fillType="nonZero" />
+    
 </vector>

@@ -25,6 +25,7 @@ color widget_text
 drawable emergency_button_background
 drawable ic_launcher_foreground
 drawable sos_button_background
+drawable sos_widget_background
 drawable widget_background
 drawable widget_preview
 id addContactButton

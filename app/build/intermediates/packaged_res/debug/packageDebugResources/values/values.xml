@@ -86,7 +86,7 @@
     <string name="test_mode_enabled">Test Mode Enabled</string>
     <string name="test_successful">Test completed successfully</string>
     <string name="widget_configure">Configure Emergency Button</string>
-    <string name="widget_emergency_button">EMERGENCY</string>
+    <string name="widget_emergency_button">SOS</string>
     <string name="yes">Yes</string>
     <style name="CancelButtonStyle" parent="Widget.Material3.Button.OutlinedButton">
         <item name="android:textColor">@color/text_primary_dark</item>

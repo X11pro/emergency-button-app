@@ -4,8 +4,8 @@ package com.emergency.button.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.LinearLayout;
+import android.widget.FrameLayout;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
@@ -17,20 +17,20 @@ import java.lang.String;
 
 public final class WidgetEmergencyBinding implements ViewBinding {
   @NonNull
-  private final LinearLayout rootView;
+  private final FrameLayout rootView;
 
   @NonNull
-  public final Button widgetEmergencyButton;
+  public final TextView widgetEmergencyButton;
 
-  private WidgetEmergencyBinding(@NonNull LinearLayout rootView,
-      @NonNull Button widgetEmergencyButton) {
+  private WidgetEmergencyBinding(@NonNull FrameLayout rootView,
+      @NonNull TextView widgetEmergencyButton) {
     this.rootView = rootView;
     this.widgetEmergencyButton = widgetEmergencyButton;
   }
 
   @Override
   @NonNull
-  public LinearLayout getRoot() {
+  public FrameLayout getRoot() {
     return rootView;
   }
 
@@ -56,12 +56,12 @@ public final class WidgetEmergencyBinding implements ViewBinding {
     int id;
     missingId: {
       id = R.id.widgetEmergencyButton;
-      Button widgetEmergencyButton = ViewBindings.findChildViewById(rootView, id);
+      TextView widgetEmergencyButton = ViewBindings.findChildViewById(rootView, id);
       if (widgetEmergencyButton == null) {
         break missingId;
       }
 
-      return new WidgetEmergencyBinding((LinearLayout) rootView, widgetEmergencyButton);
+      return new WidgetEmergencyBinding((FrameLayout) rootView, widgetEmergencyButton);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

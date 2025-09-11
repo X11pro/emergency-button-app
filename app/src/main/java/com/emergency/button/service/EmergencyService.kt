@@ -7,12 +7,14 @@ import android.util.Log
 import android.widget.Toast
 import com.emergency.button.utils.EmergencyManager
 import com.emergency.button.utils.EmergencyPreferences
+import com.emergency.button.utils.TTSManager
 
 class EmergencyService : Service() {
     
     private val TAG = "EmergencyService"
     private var emergencyManager: EmergencyManager? = null
     private var emergencyPreferences: EmergencyPreferences? = null
+    private var ttsManager: TTSManager? = null
     
     override fun onCreate() {
         super.onCreate()
@@ -22,6 +24,10 @@ class EmergencyService : Service() {
         emergencyManager?.initialize()
         
         emergencyPreferences = EmergencyPreferences(this)
+        
+        // Initialize TTS for emergency calls
+        ttsManager = TTSManager(this)
+        ttsManager?.initialize()
     }
     
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -62,6 +68,16 @@ class EmergencyService : Service() {
             emergencyManager?.executeEmergencyWithOptions({ success ->
                 if (success) {
                     Log.d(TAG, "Emergency executed successfully from service")
+                    
+                    // If call was made, speak the emergency message
+                    if (makeCall && ttsManager?.isReady() == true) {
+                        val emergencyMessage = emergencyPreferences?.getEmergencyMessage() ?: "Emergency! I need help immediately!"
+                        Log.d(TAG, "Speaking emergency message: $emergencyMessage")
+                        ttsManager?.speakEmergencyMessage(emergencyMessage) {
+                            Log.d(TAG, "TTS finished speaking emergency message")
+                        }
+                    }
+                    
                     // Show toast on main thread with the actual action taken
                     android.os.Handler(android.os.Looper.getMainLooper()).post {
                         val successText = when {
@@ -92,5 +108,9 @@ class EmergencyService : Service() {
     override fun onDestroy() {
         super.onDestroy()
         Log.d(TAG, "EmergencyService destroyed")
+        
+        // Clean up TTS resources
+        ttsManager?.shutdown()
+        ttsManager = null
     }
 }
