@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "com.emergency.sos.button.app-mergeReleaseResources-47:/layout/widget_emergency.xml",
+        "source": "com.emergency.sos.button.app-main-50:/layout/widget_emergency.xml"
+    },
+    {
+        "merged": "com.emergency.sos.button.app-mergeReleaseResources-47:/layout/floating_sos_button.xml",
+        "source": "com.emergency.sos.button.app-main-50:/layout/floating_sos_button.xml"
+    },
+    {
+        "merged": "com.emergency.sos.button.app-mergeReleaseResources-47:/layout/activity_main.xml",
+        "source": "com.emergency.sos.button.app-main-50:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.emergency.sos.button.app-mergeReleaseResources-47:/layout/activity_settings.xml",
+        "source": "com.emergency.sos.button.app-main-50:/layout/activity_settings.xml"
+    },
+    {
+        "merged": "com.emergency.sos.button.app-mergeReleaseResources-47:/layout/item_contact.xml",
+        "source": "com.emergency.sos.button.app-main-50:/layout/item_contact.xml"
+    }
+]

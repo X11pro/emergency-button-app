@@ -1,0 +1,302 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.emergency.sos.button"
+4    android:versionCode="2"
+5    android:versionName="1.0.1" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="35" />
+10
+11    <!-- Emergency Permissions -->
+12    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+12-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:6:5-79
+12-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:6:22-76
+13    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+13-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:7:5-81
+13-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:7:22-78
+14    <uses-permission android:name="android.permission.SEND_SMS" />
+14-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:8:5-67
+14-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:8:22-64
+15    <uses-permission android:name="android.permission.CALL_PHONE" />
+15-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:9:5-69
+15-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:9:22-66
+16    <uses-permission android:name="android.permission.READ_CONTACTS" />
+16-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:10:5-72
+16-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:10:22-69
+17    <uses-permission android:name="android.permission.VIBRATE" />
+17-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:11:5-66
+17-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:11:22-63
+18    <uses-permission android:name="android.permission.WAKE_LOCK" />
+18-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:12:5-68
+18-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:12:22-65
+19    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+19-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:13:5-77
+19-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:13:22-74
+20    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+20-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:14:5-81
+20-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:14:22-78
+21    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+21-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:15:5-78
+21-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:15:22-75
+22
+23    <!-- Hardware Features -->
+24    <uses-feature
+24-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:18:5-86
+25        android:name="android.hardware.location"
+25-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:18:19-59
+26        android:required="true" />
+26-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:18:60-83
+27    <uses-feature
+27-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:19:5-90
+28        android:name="android.hardware.location.gps"
+28-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:19:19-63
+29        android:required="true" />
+29-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:19:64-87
+30
+31    <permission
+31-->[androidx.core:core:1.12.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/eb774b23a309d0ec7fcbecda37ce4c00/transformed/core-1.12.0/AndroidManifest.xml:22:5-24:47
+32        android:name="com.emergency.sos.button.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+32-->[androidx.core:core:1.12.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/eb774b23a309d0ec7fcbecda37ce4c00/transformed/core-1.12.0/AndroidManifest.xml:23:9-81
+33        android:protectionLevel="signature" />
+33-->[androidx.core:core:1.12.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/eb774b23a309d0ec7fcbecda37ce4c00/transformed/core-1.12.0/AndroidManifest.xml:24:9-44
+34
+35    <uses-permission android:name="com.emergency.sos.button.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+35-->[androidx.core:core:1.12.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/eb774b23a309d0ec7fcbecda37ce4c00/transformed/core-1.12.0/AndroidManifest.xml:26:5-97
+35-->[androidx.core:core:1.12.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/eb774b23a309d0ec7fcbecda37ce4c00/transformed/core-1.12.0/AndroidManifest.xml:26:22-94
+36
+37    <application
+37-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:21:5-90:19
+38        android:allowBackup="true"
+38-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:22:9-35
+39        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+39-->[androidx.core:core:1.12.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/eb774b23a309d0ec7fcbecda37ce4c00/transformed/core-1.12.0/AndroidManifest.xml:28:18-86
+40        android:dataExtractionRules="@xml/data_extraction_rules"
+40-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:23:9-65
+41        android:extractNativeLibs="false"
+42        android:fullBackupContent="@xml/backup_rules"
+42-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:24:9-54
+43        android:icon="@mipmap/ic_launcher"
+43-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:25:9-43
+44        android:label="@string/app_name"
+44-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:26:9-41
+45        android:roundIcon="@mipmap/ic_launcher_round"
+45-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:27:9-54
+46        android:supportsRtl="true"
+46-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:28:9-35
+47        android:theme="@style/Theme.EmergencyButton" >
+47-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:29:9-53
+48
+49        <!-- Main Activity -->
+50        <activity
+50-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:33:9-43:20
+51            android:name="com.emergency.sos.button.MainActivity"
+51-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:34:13-65
+52            android:exported="true"
+52-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:35:13-36
+53            android:launchMode="singleTop"
+53-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:36:13-43
+54            android:screenOrientation="portrait"
+54-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:37:13-49
+55            android:theme="@style/Theme.EmergencyButton.NoActionBar" >
+55-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:38:13-69
+56            <intent-filter>
+56-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:39:13-42:29
+57                <action android:name="android.intent.action.MAIN" />
+57-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:40:17-69
+57-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:40:25-66
+58
+59                <category android:name="android.intent.category.LAUNCHER" />
+59-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:41:17-77
+59-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:41:27-74
+60            </intent-filter>
+61        </activity>
+62
+63        <!-- Settings Activity -->
+64        <activity
+64-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:46:9-51:72
+65            android:name="com.emergency.sos.button.SettingsActivity"
+65-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:47:13-69
+66            android:exported="false"
+66-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:48:13-37
+67            android:label="@string/settings"
+67-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:49:13-45
+68            android:parentActivityName="com.emergency.sos.button.MainActivity"
+68-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:50:13-55
+69            android:theme="@style/Theme.EmergencyButton.NoActionBar" />
+69-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:51:13-69
+70
+71        <!-- Emergency Service -->
+72        <service
+72-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:54:9-58:56
+73            android:name="com.emergency.sos.button.service.EmergencyService"
+73-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:55:13-77
+74            android:enabled="true"
+74-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:56:13-35
+75            android:exported="true"
+75-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:57:13-36
+76            android:foregroundServiceType="location" />
+76-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:58:13-53
+77
+78        <!-- Floating SOS Service -->
+79        <service
+79-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:61:9-64:40
+80            android:name="com.emergency.sos.button.service.FloatingSOSService"
+80-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:62:13-79
+81            android:enabled="true"
+81-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:63:13-35
+82            android:exported="false" />
+82-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:64:13-37
+83
+84        <!-- Emergency Widget -->
+85        <receiver
+85-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:67:9-76:20
+86            android:name="com.emergency.sos.button.widget.EmergencyWidget"
+86-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:68:13-75
+87            android:exported="true" >
+87-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:69:13-36
+88            <intent-filter>
+88-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:70:13-72:29
+89                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+89-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:71:17-84
+89-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:71:25-81
+90            </intent-filter>
+91
+92            <meta-data
+92-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:73:13-75:65
+93                android:name="android.appwidget.provider"
+93-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:74:17-58
+94                android:resource="@xml/emergency_widget_info" />
+94-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:75:17-62
+95        </receiver>
+96
+97        <!-- Boot Receiver for Widget -->
+98        <receiver
+98-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:79:9-88:20
+99            android:name="com.emergency.sos.button.receiver.BootReceiver"
+99-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:80:13-74
+100            android:enabled="true"
+100-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:81:13-35
+101            android:exported="true" >
+101-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:82:13-36
+102            <intent-filter>
+102-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:83:13-87:29
+103                <action android:name="android.intent.action.BOOT_COMPLETED" />
+103-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:84:17-79
+103-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:84:25-76
+104                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+104-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:85:17-82
+104-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:85:25-79
+105
+106                <category android:name="android.intent.category.DEFAULT" />
+106-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:86:17-76
+106-->/home/lnx-ubt/Documents/GitHub/Emergency/emergency-button-app/app/src/main/AndroidManifest.xml:86:27-73
+107            </intent-filter>
+108        </receiver>
+109
+110        <activity
+110-->[com.google.android.gms:play-services-base:18.1.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/5184f709eb9c2e3b6b61c8531277509e/transformed/play-services-base-18.1.0/AndroidManifest.xml:20:9-22:45
+111            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+111-->[com.google.android.gms:play-services-base:18.1.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/5184f709eb9c2e3b6b61c8531277509e/transformed/play-services-base-18.1.0/AndroidManifest.xml:20:19-85
+112            android:exported="false"
+112-->[com.google.android.gms:play-services-base:18.1.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/5184f709eb9c2e3b6b61c8531277509e/transformed/play-services-base-18.1.0/AndroidManifest.xml:22:19-43
+113            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+113-->[com.google.android.gms:play-services-base:18.1.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/5184f709eb9c2e3b6b61c8531277509e/transformed/play-services-base-18.1.0/AndroidManifest.xml:21:19-78
+114
+115        <meta-data
+115-->[com.google.android.gms:play-services-basement:18.1.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/97675d76094f944e73902a0a276e8d0e/transformed/play-services-basement-18.1.0/AndroidManifest.xml:21:9-23:69
+116            android:name="com.google.android.gms.version"
+116-->[com.google.android.gms:play-services-basement:18.1.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/97675d76094f944e73902a0a276e8d0e/transformed/play-services-basement-18.1.0/AndroidManifest.xml:22:13-58
+117            android:value="@integer/google_play_services_version" />
+117-->[com.google.android.gms:play-services-basement:18.1.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/97675d76094f944e73902a0a276e8d0e/transformed/play-services-basement-18.1.0/AndroidManifest.xml:23:13-66
+118
+119        <provider
+119-->[androidx.emoji2:emoji2:1.2.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/88e7f69c556ad9c103e8cfd09093fdb2/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+120            android:name="androidx.startup.InitializationProvider"
+120-->[androidx.emoji2:emoji2:1.2.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/88e7f69c556ad9c103e8cfd09093fdb2/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
+121            android:authorities="com.emergency.sos.button.androidx-startup"
+121-->[androidx.emoji2:emoji2:1.2.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/88e7f69c556ad9c103e8cfd09093fdb2/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
+122            android:exported="false" >
+122-->[androidx.emoji2:emoji2:1.2.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/88e7f69c556ad9c103e8cfd09093fdb2/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
+123            <meta-data
+123-->[androidx.emoji2:emoji2:1.2.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/88e7f69c556ad9c103e8cfd09093fdb2/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+124                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+124-->[androidx.emoji2:emoji2:1.2.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/88e7f69c556ad9c103e8cfd09093fdb2/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
+125                android:value="androidx.startup" />
+125-->[androidx.emoji2:emoji2:1.2.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/88e7f69c556ad9c103e8cfd09093fdb2/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
+126            <meta-data
+126-->[androidx.lifecycle:lifecycle-process:2.7.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/a798425e5093396349ef80e250faa986/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:29:13-31:52
+127                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+127-->[androidx.lifecycle:lifecycle-process:2.7.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/a798425e5093396349ef80e250faa986/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:30:17-78
+128                android:value="androidx.startup" />
+128-->[androidx.lifecycle:lifecycle-process:2.7.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/a798425e5093396349ef80e250faa986/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:31:17-49
+129            <meta-data
+129-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/33b316f325bc5f440fa6da27fd441c92/transformed/profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
+130                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+130-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/33b316f325bc5f440fa6da27fd441c92/transformed/profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
+131                android:value="androidx.startup" />
+131-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/33b316f325bc5f440fa6da27fd441c92/transformed/profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
+132        </provider>
+133
+134        <uses-library
+134-->[androidx.window:window:1.0.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/49f155555866ed9429bcd4c8fa741111/transformed/window-1.0.0/AndroidManifest.xml:25:9-27:40
+135            android:name="androidx.window.extensions"
+135-->[androidx.window:window:1.0.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/49f155555866ed9429bcd4c8fa741111/transformed/window-1.0.0/AndroidManifest.xml:26:13-54
+136            android:required="false" />
+136-->[androidx.window:window:1.0.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/49f155555866ed9429bcd4c8fa741111/transformed/window-1.0.0/AndroidManifest.xml:27:13-37
+137        <uses-library
+137-->[androidx.window:window:1.0.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/49f155555866ed9429bcd4c8fa741111/transformed/window-1.0.0/AndroidManifest.xml:28:9-30:40
+138            android:name="androidx.window.sidecar"
+138-->[androidx.window:window:1.0.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/49f155555866ed9429bcd4c8fa741111/transformed/window-1.0.0/AndroidManifest.xml:29:13-51
+139            android:required="false" />
+139-->[androidx.window:window:1.0.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/49f155555866ed9429bcd4c8fa741111/transformed/window-1.0.0/AndroidManifest.xml:30:13-37
+140
+141        <service
+141-->[androidx.room:room-runtime:2.6.1] /home/lnx-ubt/.gradle/caches/8.13/transforms/7bda424a2160b2e70569e43c17a57f69/transformed/room-runtime-2.6.1/AndroidManifest.xml:24:9-28:63
+142            android:name="androidx.room.MultiInstanceInvalidationService"
+142-->[androidx.room:room-runtime:2.6.1] /home/lnx-ubt/.gradle/caches/8.13/transforms/7bda424a2160b2e70569e43c17a57f69/transformed/room-runtime-2.6.1/AndroidManifest.xml:25:13-74
+143            android:directBootAware="true"
+143-->[androidx.room:room-runtime:2.6.1] /home/lnx-ubt/.gradle/caches/8.13/transforms/7bda424a2160b2e70569e43c17a57f69/transformed/room-runtime-2.6.1/AndroidManifest.xml:26:13-43
+144            android:exported="false" />
+144-->[androidx.room:room-runtime:2.6.1] /home/lnx-ubt/.gradle/caches/8.13/transforms/7bda424a2160b2e70569e43c17a57f69/transformed/room-runtime-2.6.1/AndroidManifest.xml:27:13-37
+145
+146        <receiver
+146-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/33b316f325bc5f440fa6da27fd441c92/transformed/profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
+147            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+147-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/33b316f325bc5f440fa6da27fd441c92/transformed/profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
+148            android:directBootAware="false"
+148-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/33b316f325bc5f440fa6da27fd441c92/transformed/profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
+149            android:enabled="true"
+149-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/33b316f325bc5f440fa6da27fd441c92/transformed/profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
+150            android:exported="true"
+150-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/33b316f325bc5f440fa6da27fd441c92/transformed/profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
+151            android:permission="android.permission.DUMP" >
+151-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/33b316f325bc5f440fa6da27fd441c92/transformed/profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
+152            <intent-filter>
+152-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/33b316f325bc5f440fa6da27fd441c92/transformed/profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
+153                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+153-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/33b316f325bc5f440fa6da27fd441c92/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
+153-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/33b316f325bc5f440fa6da27fd441c92/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
+154            </intent-filter>
+155            <intent-filter>
+155-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/33b316f325bc5f440fa6da27fd441c92/transformed/profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
+156                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+156-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/33b316f325bc5f440fa6da27fd441c92/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
+156-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/33b316f325bc5f440fa6da27fd441c92/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
+157            </intent-filter>
+158            <intent-filter>
+158-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/33b316f325bc5f440fa6da27fd441c92/transformed/profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
+159                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+159-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/33b316f325bc5f440fa6da27fd441c92/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
+159-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/33b316f325bc5f440fa6da27fd441c92/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
+160            </intent-filter>
+161            <intent-filter>
+161-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/33b316f325bc5f440fa6da27fd441c92/transformed/profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
+162                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+162-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/33b316f325bc5f440fa6da27fd441c92/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
+162-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lnx-ubt/.gradle/caches/8.13/transforms/33b316f325bc5f440fa6da27fd441c92/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
+163            </intent-filter>
+164        </receiver>
+165    </application>
+166
+167</manifest>

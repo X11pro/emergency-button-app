@@ -13,3 +13,25 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# ========================================
+# RELEASE CONFIGURATION - NO SUBIR A GIT
+# ========================================
+release-config.properties
+release-keystore.jks
+*.jks
+*.keystore
+
+# ========================================
+# BUILD OUTPUTS
+# ========================================
+app/build/outputs/
+app/build/reports/
+app/build/tmp/
+
+# ========================================
+# SENSITIVE FILES
+# ========================================
+keystore.properties
+signing.properties
+google-services.json
