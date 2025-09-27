@@ -6,23 +6,51 @@ plugins {
 }
 
 android {
-    namespace 'com.emergency.button'
-    compileSdk 34
+    namespace 'com.emergency.sos.button'
+    compileSdk 35
 
     defaultConfig {
-        applicationId "com.emergency.button"
+        applicationId "com.emergency.sos.button"
         minSdk 24
-        targetSdk 34
-        versionCode 1
-        versionName "1.0"
+        targetSdk 35
+        versionCode 2
+        versionName "1.0.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        
+        // Enable vector drawables
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    signingConfigs {
+        release {
+            // Configuración de signing para release
+            storeFile file('release-keystore.jks')
+            storePassword 'Ken_1804follet'
+            keyAlias 'SOS'
+            keyPassword 'Ken_1804follet'
+        }
     }
 
     buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-debug"
+            debuggable true
+        }
+        
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            
+            // Optimizaciones adicionales
+            zipAlignEnabled true
+            debuggable false
+            jniDebuggable false
+            renderscriptDebuggable false
+            pseudoLocalesEnabled false
         }
     }
     
