@@ -9,17 +9,42 @@
     <string name="cancel_text">CANCEL</string>
     <string name="settings_button">Settings</string>
     
-    <!-- Settings -->
+    <!-- Settings Screen -->
     <string name="settings">Settings</string>
-    <string name="emergency_contacts">Emergency Contacts</string>
-    <string name="emergency_message">Emergency Message</string>
-    <string name="emergency_message_hint">Enter your emergency message</string>
-    <string name="default_emergency_message">EMERGENCY! I need help immediately. My location is:</string>
+    <string name="safety_settings">Safety Settings</string>
+    
+    <!-- Activation Mode Section -->
+    <string name="activation_mode">Activation Mode</string>
+    <string name="activation_mode_description">Choose how your emergency contacts are alerted when SOS is triggered.</string>
+    <string name="sms_only">SMS Only</string>
+    <string name="call_only">Call Only</string>
+    <string name="sms_and_call">SMS + Call</string>
+    
+    <!-- SOS Message Section -->
+    <string name="your_sos_message">Your SOS Message</string>
+    <string name="enter_emergency_message">Enter your emergency message here...</string>
+    <string name="location_coordinates_info">Location coordinates will be automatically appended to this message.</string>
+    <string name="default_emergency_message">Help! I am in danger. I have triggered my SOS alarm. Here is my current location, please send help immediately.</string>
+    
+    <!-- Trusted Contacts Section -->
+    <string name="trusted_contacts">Trusted Contacts</string>
+    <string name="add_new">Add New</string>
     <string name="add_contact">Add Contact</string>
     <string name="remove_contact">Remove</string>
+    <string name="emergency_contacts">Emergency Contacts</string>
+    
+    <!-- System Check Section -->
+    <string name="system_check">System Check</string>
+    <string name="test_siren">Test Siren</string>
+    <string name="test_gps">Test GPS</string>
     <string name="test_emergency">Test Emergency</string>
-    <string name="test_mode_enabled">Test Mode Enabled</string>
-    <string name="test_mode_disabled">Test Mode Disabled</string>
+    <string name="test_location">Test Location</string>
+    
+    <!-- Save Button -->
+    <string name="save_changes">Save Changes</string>
+    
+    <!-- Widget Configuration -->
+    <string name="widget_configuration">Widget Configuration</string>
     
     <!-- Permissions -->
     <string name="permission_location_title">Location Permission Required</string>
@@ -90,4 +115,29 @@
     <string name="emergency_button_description">Large red emergency button to send help alert</string>
     <string name="settings_button_description">Open settings to configure emergency contacts</string>
     <string name="cancel_button_description">Cancel emergency alert</string>
+    
+    <!-- Widget Configuration Screen -->
+    <string name="sos_widget">SOS Widget</string>
+    <string name="widget_preview">Widget Preview</string>
+    <string name="live">LIVE</string>
+    <string name="ready">Ready</string>
+    <string name="ready_uppercase">READY</string>
+    <string name="sos">SOS</string>
+    <string name="emergency">Emergency</string>
+    <string name="emergency_sos">Emergency SOS</string>
+    <string name="press_hold_to_activate">Press &amp; hold to activate</string>
+    <string name="hold_for_3s_to_trigger">Hold for 3s to trigger</string>
+    <string name="details">Details</string>
+    <string name="press_hold_instruction">Press &amp; Hold to Activate from Home Screen</string>
+    <string name="check_in">Check In</string>
+    <string name="system_status">System Status</string>
+    <string name="connection">Connection</string>
+    <string name="active">Active</string>
+    <string name="gps_signal">GPS Signal</string>
+    <string name="widget_settings">Widget Settings</string>
+    <string name="auto_share_location">Auto-Share Location</string>
+    <string name="send_coords_on_activate">Send coords on activate</string>
+    <string name="silent_alarm">Silent Alarm</string>
+    <string name="no_local_siren_sound">No local siren sound</string>
+    <string name="trigger_sos_now">Trigger SOS Now</string>
 </resources>

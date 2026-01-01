@@ -2,6 +2,7 @@ package com.emergency.sos.button.utils
 
 import android.content.Context
 import android.content.Intent
+import android.hardware.camera2.CameraManager
 import android.location.Location
 import android.media.AudioManager
 import android.media.ToneGenerator
@@ -203,9 +204,11 @@ class EmergencyManager(private val context: Context) {
             // Vibrate
             activateVibration()
             
-            
             // Sound alert
             activateSoundAlert()
+            
+            // Flashlight
+            activateFlashlight()
             
         } catch (e: Exception) {
             Log.e(TAG, "Error activating physical alerts", e)
@@ -229,7 +232,7 @@ class EmergencyManager(private val context: Context) {
     private fun activateFlashlight() {
         try {
             val cameraManager = context.getSystemService(Context.CAMERA_SERVICE) as CameraManager
-            val cameraId = cameraManager.cameraIdList.firstOrNull { id ->
+            val cameraId: String? = cameraManager.cameraIdList.firstOrNull { id ->
                 val characteristics = cameraManager.getCameraCharacteristics(id)
                 val flashAvailable = characteristics.get(android.hardware.camera2.CameraCharacteristics.FLASH_INFO_AVAILABLE)
                 flashAvailable == true
@@ -272,8 +275,18 @@ class EmergencyManager(private val context: Context) {
     }
     
     fun testEmergency(callback: (Boolean) -> Unit) {
-        Log.d(TAG, "Testing emergency system")
-        executeEmergency(callback)
+        Log.d(TAG, "Testing emergency physical alerts only")
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                // Only test physical alerts (siren, vibration, flashlight)
+                activatePhysicalAlerts()
+                Log.d(TAG, "Physical alerts test completed successfully")
+                callback(true)
+            } catch (e: Exception) {
+                Log.e(TAG, "Error testing physical alerts", e)
+                callback(false)
+            }
+        }
     }
     
     fun testLocation(callback: (String) -> Unit) {
@@ -297,5 +310,9 @@ class EmergencyManager(private val context: Context) {
                 callback("Error getting location: ${e.message}")
             }
         }
+    }
+    
+    suspend fun getCurrentLocationSync(): Location? {
+        return getCurrentLocation()
     }
 }

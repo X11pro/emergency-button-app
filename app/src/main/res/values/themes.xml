@@ -78,5 +78,23 @@
         <item name="colorPrimary">@color/emergency_red</item>
         <item name="colorSurface">@color/surface_dark</item>
         <item name="colorOnSurface">@color/text_primary_dark</item>
+        <item name="android:textColorPrimary">@color/text_primary_dark</item>
+        <item name="android:textColorSecondary">@color/text_secondary_dark</item>
+        <item name="android:background">@color/surface_dark</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/AlertDialogTitleStyle</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/AlertDialogBodyStyle</item>
+    </style>
+    
+    <!-- Alert Dialog Title Style -->
+    <style name="AlertDialogTitleStyle">
+        <item name="android:textColor">@color/text_primary_dark</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    
+    <!-- Alert Dialog Body Style -->
+    <style name="AlertDialogBodyStyle">
+        <item name="android:textColor">@color/text_primary_dark</item>
+        <item name="android:textSize">16sp</item>
     </style>
 </resources>

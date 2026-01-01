@@ -13,6 +13,16 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    
+    <!-- Declaraciones de uso de permisos sensibles -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    
+    <!-- Declaración de uso de permisos sensibles para Google Play -->
+    <!-- Location: Used to share exact GPS coordinates with emergency contacts during emergency activation -->
+    <!-- SMS: Used to send emergency text messages to designated emergency contacts -->
+    <!-- Phone: Used to make emergency calls to designated emergency contacts -->
+    <!-- Contacts: Used to access emergency contact list for sending alerts -->
 
     <!-- Hardware Features -->
     <uses-feature android:name="android.hardware.location" android:required="true" />
@@ -50,12 +60,21 @@
             android:parentActivityName=".MainActivity"
             android:theme="@style/Theme.EmergencyButton.NoActionBar" />
 
+        <!-- Widget Configuration Activity -->
+        <activity
+            android:name="com.emergency.sos.button.WidgetConfigurationActivity"
+            android:exported="false"
+            android:label="@string/sos_widget"
+            android:parentActivityName=".SettingsActivity"
+            android:theme="@style/Theme.EmergencyButton.NoActionBar" />
+
         <!-- Emergency Service -->
         <service
             android:name="com.emergency.sos.button.service.EmergencyService"
             android:enabled="true"
-            android:exported="true"
-            android:foregroundServiceType="location" />
+            android:exported="false"
+            android:foregroundServiceType="location"
+            android:permission="android.permission.FOREGROUND_SERVICE_LOCATION" />
 
         <!-- Floating SOS Service -->
         <service

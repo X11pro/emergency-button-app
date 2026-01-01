@@ -19,6 +19,12 @@ class EmergencyPreferences(private val context: Context) {
         private const val KEY_EMERGENCY_OPTION_NAME = "emergency_option_name"
         private const val KEY_EMERGENCY_SEND_SMS = "emergency_send_sms"
         private const val KEY_EMERGENCY_MAKE_CALL = "emergency_make_call"
+        private const val KEY_WIDGET_OPTION_NAME = "widget_option_name"
+        private const val KEY_WIDGET_SEND_SMS = "widget_send_sms"
+        private const val KEY_WIDGET_MAKE_CALL = "widget_make_call"
+        private const val KEY_FLOATING_SOS_ENABLED = "floating_sos_enabled"
+        private const val KEY_WIDGET_AUTO_SHARE_LOCATION = "widget_auto_share_location"
+        private const val KEY_WIDGET_SILENT_ALARM = "widget_silent_alarm"
     }
     
     fun getEmergencyMessage(): String {
@@ -162,6 +168,78 @@ class EmergencyPreferences(private val context: Context) {
         return sharedPreferences.getBoolean(KEY_EMERGENCY_MAKE_CALL, true)
     }
     
+    fun setWidgetOption(optionName: String, sendSMS: Boolean, makeCall: Boolean): Boolean {
+        return try {
+            sharedPreferences.edit()
+                .putString(KEY_WIDGET_OPTION_NAME, optionName)
+                .putBoolean(KEY_WIDGET_SEND_SMS, sendSMS)
+                .putBoolean(KEY_WIDGET_MAKE_CALL, makeCall)
+                .apply()
+            android.util.Log.d(TAG, "Widget option saved: $optionName (SMS: $sendSMS, Call: $makeCall)")
+            true
+        } catch (e: Exception) {
+            android.util.Log.e(TAG, "Error saving widget option", e)
+            false
+        }
+    }
+    
+    fun getWidgetOptionName(): String {
+        return sharedPreferences.getString(KEY_WIDGET_OPTION_NAME, "SMS + Call") ?: "SMS + Call"
+    }
+    
+    fun getWidgetSendSMS(): Boolean {
+        return sharedPreferences.getBoolean(KEY_WIDGET_SEND_SMS, true)
+    }
+    
+    fun getWidgetMakeCall(): Boolean {
+        return sharedPreferences.getBoolean(KEY_WIDGET_MAKE_CALL, true)
+    }
+    
+    fun isFloatingSOSEnabled(): Boolean {
+        return sharedPreferences.getBoolean(KEY_FLOATING_SOS_ENABLED, false)
+    }
+    
+    fun setFloatingSOSEnabled(enabled: Boolean): Boolean {
+        return try {
+            sharedPreferences.edit().putBoolean(KEY_FLOATING_SOS_ENABLED, enabled).apply()
+            android.util.Log.d(TAG, "Floating SOS ${if (enabled) "enabled" else "disabled"}")
+            true
+        } catch (e: Exception) {
+            android.util.Log.e(TAG, "Error setting floating SOS", e)
+            false
+        }
+    }
+    
+    fun getWidgetAutoShareLocation(): Boolean {
+        return sharedPreferences.getBoolean(KEY_WIDGET_AUTO_SHARE_LOCATION, true)
+    }
+    
+    fun setWidgetAutoShareLocation(enabled: Boolean): Boolean {
+        return try {
+            sharedPreferences.edit().putBoolean(KEY_WIDGET_AUTO_SHARE_LOCATION, enabled).apply()
+            android.util.Log.d(TAG, "Widget auto-share location ${if (enabled) "enabled" else "disabled"}")
+            true
+        } catch (e: Exception) {
+            android.util.Log.e(TAG, "Error setting widget auto-share location", e)
+            false
+        }
+    }
+    
+    fun getWidgetSilentAlarm(): Boolean {
+        return sharedPreferences.getBoolean(KEY_WIDGET_SILENT_ALARM, false)
+    }
+    
+    fun setWidgetSilentAlarm(enabled: Boolean): Boolean {
+        return try {
+            sharedPreferences.edit().putBoolean(KEY_WIDGET_SILENT_ALARM, enabled).apply()
+            android.util.Log.d(TAG, "Widget silent alarm ${if (enabled) "enabled" else "disabled"}")
+            true
+        } catch (e: Exception) {
+            android.util.Log.e(TAG, "Error setting widget silent alarm", e)
+            false
+        }
+    }
+    
     fun getAllSettings(): Map<String, Any> {
         return mapOf(
             "emergency_message" to getEmergencyMessage(),
@@ -173,7 +251,13 @@ class EmergencyPreferences(private val context: Context) {
             "physical_alerts" to isPhysicalAlertsEnabled(),
             "emergency_option_name" to getEmergencyOptionName(),
             "emergency_send_sms" to getEmergencySendSMS(),
-            "emergency_make_call" to getEmergencyMakeCall()
+            "emergency_make_call" to getEmergencyMakeCall(),
+            "widget_option_name" to getWidgetOptionName(),
+            "widget_send_sms" to getWidgetSendSMS(),
+            "widget_make_call" to getWidgetMakeCall(),
+            "floating_sos_enabled" to isFloatingSOSEnabled(),
+            "widget_auto_share_location" to getWidgetAutoShareLocation(),
+            "widget_silent_alarm" to getWidgetSilentAlarm()
         )
     }
 }

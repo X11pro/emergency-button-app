@@ -6,22 +6,24 @@
     <color name="emergency_red_light">#FF4444</color>
     
     <!-- Background Colors -->
-    <color name="background_dark">#121212</color>
-    <color name="background_light">#FFFFFF</color>
-    <color name="surface_dark">#1E1E1E</color>
-    <color name="surface_light">#F5F5F5</color>
+    <color name="background_dark">#101c22</color>
+    <color name="background_light">#f6f7f8</color>
+    <color name="surface_dark">#1c2327</color>
+    <color name="surface_light">#2c353b</color>
     
     <!-- Text Colors -->
     <color name="text_primary_dark">#FFFFFF</color>
     <color name="text_primary_light">#000000</color>
-    <color name="text_secondary_dark">#B3FFFFFF</color>
+    <color name="text_secondary_dark">#9db0b9</color>
     <color name="text_secondary_light">#757575</color>
+    <color name="text_tertiary_dark">#5f707a</color>
     
     <!-- Status Colors -->
     <color name="success_green">#4CAF50</color>
     <color name="warning_orange">#FF9800</color>
     <color name="error_red">#F44336</color>
-    <color name="info_blue">#2196F3</color>
+    <color name="info_blue">#13a4ec</color>
+    <color name="primary">#f20d0d</color>
     
     <!-- Button Colors -->
     <color name="button_primary">#FF0000</color>
@@ -35,4 +37,37 @@
     <!-- Notification Colors -->
     <color name="notification_background">#FF0000</color>
     <color name="notification_text">#FFFFFF</color>
+    
+    <!-- New UI Colors -->
+    <color name="orange_background">#FFF3E0</color>
+    <color name="orange_background_dark">#4A2E0F</color>
+    <color name="orange_icon">#FF9800</color>
+    <color name="orange_icon_dark">#FFB74D</color>
+    <color name="green_background">#E8F5E9</color>
+    <color name="green_background_dark">#1B5E20</color>
+    <color name="green_icon">#4CAF50</color>
+    <color name="green_icon_dark">#81C784</color>
+    <color name="blue_avatar_background">#E3F2FD</color>
+    <color name="blue_avatar_background_dark">#0D47A1</color>
+    <color name="blue_avatar_text">#2196F3</color>
+    <color name="blue_avatar_text_dark">#64B5F6</color>
+    
+    <!-- Widget Configuration Button -->
+    <color name="widget_config_button">#7A1B1B</color>
+    <color name="widget_config_border">#4CAF50</color>
+    
+    <!-- Widget Configuration Screen Colors -->
+    <color name="primary_light_background">#1A0A0A</color>
+    <color name="widget_preview_background">#121212</color>
+    <color name="widget_preview_border">#333333</color>
+    <color name="widget_status_background">#1A1A1A</color>
+    <color name="widget_status_border">#333333</color>
+    <color name="widget_checkin_background">#1A1A1A</color>
+    <color name="widget_checkin_border">#333333</color>
+    <color name="widget_location_background">#1A1A1A</color>
+    <color name="widget_divider">#543b3b</color>
+    <color name="system_status_card_background">#181111</color>
+    <color name="system_status_card_border">#543b3b</color>
+    <color name="green_status_background">#0D4A0D</color>
+    <color name="blue_status_background">#0D1A4A</color>
 </resources>

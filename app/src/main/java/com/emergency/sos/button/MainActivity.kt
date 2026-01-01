@@ -14,7 +14,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.emergency.sos.button.databinding.ActivityMainBinding
-import com.emergency.sos.button.service.FloatingSOSService
 import com.emergency.sos.button.utils.EmergencyManager
 import com.emergency.sos.button.utils.PermissionManager
 
@@ -25,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var permissionManager: PermissionManager
     private var countdownTimer: CountDownTimer? = null
     private var isEmergencyActive = false
-    private var isFloatingSOSActive = false
+    private var hasNavigatedToSettings = false
     
     // Permission launcher
     private val permissionLauncher = registerForActivityResult(
@@ -34,8 +33,11 @@ class MainActivity : AppCompatActivity() {
         val allGranted = permissions.values.all { it }
         if (allGranted) {
             emergencyManager.initialize()
-        } else {
-            showPermissionDeniedDialog()
+        }
+        // Navigate to Settings regardless of permission status
+        if (!hasNavigatedToSettings) {
+            hasNavigatedToSettings = true
+            navigateToSettings()
         }
     }
     
@@ -66,16 +68,6 @@ class MainActivity : AppCompatActivity() {
         binding.cancelButton.setOnClickListener {
             cancelEmergency()
         }
-        
-        // Settings button click
-        binding.settingsButton.setOnClickListener {
-            startSettingsActivity()
-        }
-        
-        // Floating SOS toggle button click
-        binding.floatingSOSToggleButton.setOnClickListener {
-            toggleFloatingSOS()
-        }
     }
     
     private fun checkPermissions() {
@@ -91,16 +83,28 @@ class MainActivity : AppCompatActivity() {
         }.toTypedArray()
         
         if (permissionsToRequest.isNotEmpty()) {
+            // Request permissions - will navigate to Settings after (granted or denied)
             permissionLauncher.launch(permissionsToRequest)
         } else {
+            // All permissions already granted - navigate to Settings
             emergencyManager.initialize()
+            if (!hasNavigatedToSettings) {
+                hasNavigatedToSettings = true
+                navigateToSettings()
+            }
         }
+    }
+    
+    private fun navigateToSettings() {
+        val intent = Intent(this, SettingsActivity::class.java)
+        startActivity(intent)
+        // Don't finish MainActivity so user can return to emergency button
     }
     
     private fun startEmergencyCountdown() {
         if (!emergencyManager.hasEmergencyContacts()) {
             Toast.makeText(this, R.string.error_no_contacts, Toast.LENGTH_LONG).show()
-            startSettingsActivity()
+            navigateToSettings()
             return
         }
         
@@ -207,74 +211,12 @@ class MainActivity : AppCompatActivity() {
         countdownTimer = null
     }
     
-    private fun startSettingsActivity() {
-        val intent = Intent(this, SettingsActivity::class.java)
-        startActivity(intent)
-    }
     
-    private fun toggleFloatingSOS() {
-        if (isFloatingSOSActive) {
-            stopFloatingSOS()
-        } else {
-            startFloatingSOS()
-        }
-    }
-    
-    private fun startFloatingSOS() {
-        if (!FloatingSOSService.isOverlayPermissionGranted(this)) {
-            showOverlayPermissionDialog()
-            return
-        }
-        
-        val intent = Intent(this, FloatingSOSService::class.java)
-        startService(intent)
-        isFloatingSOSActive = true
-        binding.floatingSOSToggleButton.text = getString(R.string.floating_sos_disabled)
-        Toast.makeText(this, R.string.floating_sos_enabled, Toast.LENGTH_SHORT).show()
-    }
-    
-    private fun stopFloatingSOS() {
-        val intent = Intent(this, FloatingSOSService::class.java)
-        stopService(intent)
-        isFloatingSOSActive = false
-        binding.floatingSOSToggleButton.text = getString(R.string.floating_sos_toggle_text)
-        Toast.makeText(this, R.string.floating_sos_disabled, Toast.LENGTH_SHORT).show()
-    }
-    
-    private fun showOverlayPermissionDialog() {
-        AlertDialog.Builder(this)
-            .setTitle(R.string.floating_sos_permission_required)
-            .setMessage(R.string.floating_sos_permission_message)
-            .setPositiveButton(R.string.ok) { _, _ ->
-                FloatingSOSService.requestOverlayPermission(this)
-            }
-            .setNegativeButton(R.string.cancel, null)
-            .show()
-    }
-    
-    private fun showPermissionDeniedDialog() {
-        AlertDialog.Builder(this)
-            .setTitle(R.string.error_permissions_denied)
-            .setMessage("This app requires location, SMS, phone, and contacts permissions to function properly in emergencies.")
-            .setPositiveButton(R.string.ok) { _, _ ->
-                finish()
-            }
-            .setCancelable(false)
-            .show()
-    }
     
     override fun onResume() {
         super.onResume()
-        emergencyManager.initialize()
-        updateFloatingSOSButtonState()
-    }
-    
-    private fun updateFloatingSOSButtonState() {
-        // Check if overlay permission is still granted
-        if (!FloatingSOSService.isOverlayPermissionGranted(this)) {
-            isFloatingSOSActive = false
-            binding.floatingSOSToggleButton.text = getString(R.string.floating_sos_toggle_text)
-        }
+        // Check permissions again when returning to this activity
+        checkPermissions()
     }
     
     override fun onDestroy() {
